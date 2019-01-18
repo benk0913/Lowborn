@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using System.Linq;
 
 public class BuildingTool : MonoBehaviour
 {
@@ -43,7 +44,19 @@ public class BuildingTool : MonoBehaviour
 
     public ToolState State { private set; get; }
 
-    int CurrentFloor = 0;
+    public int CurrentFloor
+    {
+        get
+        {
+            return currentFloor;
+        }
+        set
+        {
+            currentFloor = value;
+            RefreshBlueprintState();
+        }
+    }
+    int currentFloor;
 
     bool canBuild;
 
@@ -82,24 +95,6 @@ public class BuildingTool : MonoBehaviour
 
     void RefreshSelectionPoint()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            CurrentFloor++;
-
-            RefreshBlueprintState();
-        }
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            if (CurrentFloor > 0)
-            {
-                CurrentFloor--;
-
-                RefreshBlueprintState();
-            }
-        }
-
-
-
 
         MouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
         if (Physics.Raycast(MouseRay.origin, MouseRay.direction, out RayHit, Mathf.Infinity, buildMask, QueryTriggerInteraction.UseGlobal))
@@ -223,6 +218,11 @@ public class BuildingTool : MonoBehaviour
 
     void RefreshBlueprintState()
     {
+        if(BlueprintItem == null)
+        {
+            return;
+        }
+
         List<Material> iMaterials = new List<Material>();
         iMaterials.InsertRange(0, BlueprintItem.GetComponent<BlueprintObject>().MeshObject.GetComponent<MeshRenderer>().materials);
         
@@ -311,6 +311,26 @@ public class BuildingTool : MonoBehaviour
     public void RemoveOccupationFromSMAP(Vector2 point, StructureProp structure)
     {
         SMAP[point].Remove(structure);
+    }
+
+    public List<StructureProp> GetStructuresInFloor(int floor)
+    {
+        List<StructureProp> props = new List<StructureProp>();
+
+        for(int a=0;a<SMAP.Keys.Count;a++)
+        {
+            for(int b=0; b < SMAP[SMAP.Keys.ElementAt(a)].Count;b++)
+            {
+                StructureProp prop = SMAP[SMAP.Keys.ElementAt(a)][b];
+
+                if (prop.Floor == floor)
+                {
+                    props.Add(prop);
+                }
+            }
+        }
+
+        return props;
     }
 
     public bool CanBuild(Vector2 smapPos, StructureProp prop)
