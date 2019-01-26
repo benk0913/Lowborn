@@ -20,9 +20,6 @@ public class BuildingTool : MonoBehaviour
     [SerializeField]
     Material SelectedMaterial;
 
-    [SerializeField]
-    GameObject UIPanel;
-
     bool isToolActive;
 
     #endregion
@@ -323,7 +320,6 @@ public class BuildingTool : MonoBehaviour
         }
 
         isToolActive = true;
-        UIPanel.SetActive(true);
     }
 
     public void DeactivateTool()
@@ -336,7 +332,6 @@ public class BuildingTool : MonoBehaviour
         isToolActive = false;
         ClearBlueprint();
         marker.gameObject.SetActive(false);
-        UIPanel.SetActive(false);
     }
 
     public bool AddOccupationToSMAP(Vector2 point, StructureProp structure)

@@ -17,6 +17,7 @@ public class CORE : MonoBehaviour
 
     public static CORE Instance;
 
+
     public ViewMode CurrentViewMode
     {
         get
@@ -204,11 +205,12 @@ public class CORE : MonoBehaviour
         IsMouseOnUI = state;
     }
 
-    [System.Serializable]
+
     public enum ViewMode
     {
         Outside,
         Walls,
         HideWalls
     }
+
 }

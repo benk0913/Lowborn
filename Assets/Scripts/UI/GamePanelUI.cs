@@ -16,11 +16,58 @@ public class GamePanelUI : MonoBehaviour
     [SerializeField]
     Image ViewModeHideWallImg;
 
+    [SerializeField]
+    Button PlayToolButton;
+    [SerializeField]
+    Button BuildToolButton;
+
+    [SerializeField]
+    GameObject BuildTool;
+    [SerializeField]
+    GameObject PlayTool;
+
     public static GamePanelUI Instance;
+
+    public GameTool CurrentGameTool
+    {
+        get
+        {
+            return currentGameTool;
+        }
+        set
+        {
+            currentGameTool = value;
+
+            switch(currentGameTool)
+            {
+                case GameTool.Build:
+                    {
+                        BuildTool.gameObject.SetActive(true);
+                        PlayTool.gameObject.SetActive(false);
+
+                        PlayToolButton.gameObject.SetActive(true);
+                        BuildToolButton.gameObject.SetActive(false);
+                        break;
+                    }
+                case GameTool.Play:
+                    {
+                        BuildTool.gameObject.SetActive(false);
+                        PlayTool.gameObject.SetActive(true);
+
+                        PlayToolButton.gameObject.SetActive(false);
+                        BuildToolButton.gameObject.SetActive(true);
+                        break;
+                    }
+            }
+        }
+    }
+    GameTool currentGameTool;
 
     private void Awake()
     {
         Instance = this;
+
+        CurrentGameTool = GameTool.Play;
     }
 
     public void SetFloorText(string sText)
@@ -73,6 +120,11 @@ public class GamePanelUI : MonoBehaviour
         SetViewMode((CORE.ViewMode)Mode);
     }
 
+    public void SetGameTool(int tool)
+    {
+        CurrentGameTool = (GameTool)tool;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
@@ -83,5 +135,12 @@ public class GamePanelUI : MonoBehaviour
         {
             ViewLowerFloor();
         }
+    }
+
+
+    public enum GameTool
+    {
+        Build,
+        Play
     }
 }

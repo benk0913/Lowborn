@@ -8,12 +8,17 @@ public class Actor : MonoBehaviour
     [SerializeField]
     NavMeshAgent NavAgent;
 
+    [SerializeField]
+    Animator Anim;
+
     private void Update()
     {
         if(Input.GetMouseButton(0))
         {
             NavigateTo(CORE.Instance.GroundMouseHit.point);
         }
+
+        Anim.SetFloat("Velocity", NavAgent.velocity.sqrMagnitude);
     }
 
     #region Basic
