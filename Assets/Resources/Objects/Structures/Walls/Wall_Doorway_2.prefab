@@ -11,8 +11,11 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 8060492667760214421}
   - component: {fileID: 7817358093045639307}
-  m_Layer: 0
-  m_Name: Wall_Doorway_1B4
+  - component: {fileID: 6924049687235887152}
+  - component: {fileID: 5261344542312193657}
+  - component: {fileID: 2084946124097322201}
+  m_Layer: 10
+  m_Name: Wall_Doorway_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +67,50 @@ MonoBehaviour:
     Description: 
     PriceValue:
       Silver: 0
+    SizeX: 1
+    SizeZ: 0
     Type: 0
+  MeshObject: {fileID: 2694266294006672080}
+  Floor: 0
+--- !u!65 &6924049687235887152
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2574539, y: 0.6312558, z: 4.0148363}
+  m_Center: {x: 1.6321449, y: 0.040082276, z: 1.9531341}
+--- !u!65 &5261344542312193657
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1910172, y: 0.6312558, z: 4.0148363}
+  m_Center: {x: -1.6369781, y: 0.040082276, z: 1.9531341}
+--- !u!65 &2084946124097322201
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0470924, y: 0.6312558, z: 1.038193}
+  m_Center: {x: -0.01351738, y: 0.040082276, z: 3.441456}
 --- !u!1001 &2694266294006719106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -132,11 +178,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.1249759
       objectReference: {fileID: 0}
-    - target: {fileID: 6404792, guid: 87b7609d6bdd828418e0683654cede03, type: 3}
-      propertyPath: m_Convex
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6404792, guid: 87b7609d6bdd828418e0683654cede03, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 87b7609d6bdd828418e0683654cede03, type: 3}
 --- !u!1 &2694266294006831350 stripped
 GameObject:

@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 8060492667760214421}
   - component: {fileID: 7817358093045639307}
-  m_Layer: 0
+  - component: {fileID: 4145115837974524901}
+  - component: {fileID: 5754863982984034799}
+  - component: {fileID: 5095956901295596772}
+  m_Layer: 10
   m_Name: Wall_Doorway
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +67,50 @@ MonoBehaviour:
     Description: 
     PriceValue:
       Silver: 0
+    SizeX: 1
+    SizeZ: 0
     Type: 0
+  MeshObject: {fileID: 8556988031328267057}
+  Floor: 0
+--- !u!65 &4145115837974524901
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2574539, y: 0.6312558, z: 4.0148363}
+  m_Center: {x: 1.6321449, y: 0.040082276, z: 1.9531341}
+--- !u!65 &5754863982984034799
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1910172, y: 0.6312558, z: 4.0148363}
+  m_Center: {x: -1.6369781, y: 0.040082276, z: 1.9531341}
+--- !u!65 &5095956901295596772
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.0470924, y: 0.6312558, z: 1.038193}
+  m_Center: {x: -0.01351738, y: 0.040082276, z: 3.441456}
 --- !u!1 &6254689983474784376
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +122,6 @@ GameObject:
   - component: {fileID: 8556988031328267057}
   - component: {fileID: 3179312821912881993}
   - component: {fileID: 4719236738648337778}
-  - component: {fileID: 4598349471711835851}
   m_Layer: 0
   m_Name: mesh
   m_TagString: Structure
@@ -143,17 +188,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4598349471711835851
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6254689983474784376}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300022, guid: 35fa29dffd83f1d47a6ff8c91e60439c, type: 3}

@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 8060492667760214421}
   - component: {fileID: 7817358093045639307}
-  m_Layer: 0
-  m_Name: Wall_Winow_1B2
+  - component: {fileID: 3751576606174648674}
+  m_Layer: 10
+  m_Name: Wall_Window_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +65,24 @@ MonoBehaviour:
     Description: 
     PriceValue:
       Silver: 0
+    SizeX: 1
+    SizeZ: 0
     Type: 0
+  MeshObject: {fileID: 3473144580729276446}
+  Floor: 0
+--- !u!65 &3751576606174648674
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.5409164, y: 0.6312558, z: 4.0148363}
+  m_Center: {x: -0.009586334, y: 0.04008226, z: 1.9531341}
 --- !u!1001 &3473144580729621848
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -121,16 +139,12 @@ PrefabInstance:
       value: 90.00001
       objectReference: {fileID: 0}
     - target: {fileID: 476486, guid: b64f191381548954fb34108c12b24e72, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.0035012
-      objectReference: {fileID: 0}
-    - target: {fileID: 476486, guid: b64f191381548954fb34108c12b24e72, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 476486, guid: b64f191381548954fb34108c12b24e72, type: 3}
       propertyPath: m_LocalScale.y
       value: 1.1250005
+      objectReference: {fileID: 0}
+    - target: {fileID: 476486, guid: b64f191381548954fb34108c12b24e72, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0035012
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b64f191381548954fb34108c12b24e72, type: 3}

@@ -11,7 +11,8 @@ GameObject:
   - component: {fileID: 400000}
   - component: {fileID: 8060492667760214421}
   - component: {fileID: 7817358093045639307}
-  m_Layer: 0
+  - component: {fileID: 6130385481001870286}
+  m_Layer: 10
   m_Name: Wall_Window
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -64,7 +65,24 @@ MonoBehaviour:
     Description: 
     PriceValue:
       Silver: 0
+    SizeX: 1
+    SizeZ: 0
     Type: 0
+  MeshObject: {fileID: 8556988031328267057}
+  Floor: 0
+--- !u!65 &6130385481001870286
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 100000}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.5409164, y: 0.6312558, z: 4.0148363}
+  m_Center: {x: -0.009586334, y: 0.04008226, z: 1.9531341}
 --- !u!1 &6254689983474784376
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +94,6 @@ GameObject:
   - component: {fileID: 8556988031328267057}
   - component: {fileID: 3179312821912881993}
   - component: {fileID: 4719236738648337778}
-  - component: {fileID: 4598349471711835851}
   m_Layer: 0
   m_Name: mesh
   m_TagString: Structure
@@ -143,17 +160,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &4598349471711835851
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6254689983474784376}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 1
-  m_CookingOptions: 14
-  m_Mesh: {fileID: 4300022, guid: 35fa29dffd83f1d47a6ff8c91e60439c, type: 3}
