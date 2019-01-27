@@ -70,8 +70,9 @@ MonoBehaviour:
     SizeX: 1
     SizeZ: 0
     Type: 0
-  MeshObject: {fileID: 2694266294006672080}
   Floor: 0
+  MeshRenderers:
+  - {fileID: 2694266294009052992}
 --- !u!65 &6924049687235887152
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -178,8 +179,7 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.1249759
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6404792, guid: 87b7609d6bdd828418e0683654cede03, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7609d6bdd828418e0683654cede03, type: 3}
 --- !u!1 &2694266294006831350 stripped
 GameObject:
@@ -190,6 +190,12 @@ GameObject:
 --- !u!4 &2694266294006672080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 477266, guid: 87b7609d6bdd828418e0683654cede03,
+    type: 3}
+  m_PrefabInstance: {fileID: 2694266294006719106}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &2694266294009052992 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2334146, guid: 87b7609d6bdd828418e0683654cede03,
     type: 3}
   m_PrefabInstance: {fileID: 2694266294006719106}
   m_PrefabAsset: {fileID: 0}

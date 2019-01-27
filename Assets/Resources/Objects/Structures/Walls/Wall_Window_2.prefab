@@ -69,8 +69,9 @@ MonoBehaviour:
     SizeX: 1
     SizeZ: 0
     Type: 0
-  MeshObject: {fileID: 3473144580729276446}
   Floor: 0
+  MeshRenderers:
+  - {fileID: 3473144580727452438}
 --- !u!65 &3751576606174648674
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -174,6 +175,12 @@ GameObject:
 --- !u!4 &3473144580729276446 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 476486, guid: b64f191381548954fb34108c12b24e72,
+    type: 3}
+  m_PrefabInstance: {fileID: 3473144580729621848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!23 &3473144580727452438 stripped
+MeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 2326094, guid: b64f191381548954fb34108c12b24e72,
     type: 3}
   m_PrefabInstance: {fileID: 3473144580729621848}
   m_PrefabAsset: {fileID: 0}

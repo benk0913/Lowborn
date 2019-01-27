@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class StructureProp : MonoBehaviour
@@ -10,13 +11,23 @@ public class StructureProp : MonoBehaviour
     [System.NonSerialized]
     public List<Vector2> OccupiedSMAPs = new List<Vector2>();
 
-    [SerializeField]
-    Transform MeshObject;
-
     List<Material> OriginalMaterials;
 
     public int Floor;
-    
+
+    [SerializeField]
+    public MeshRenderer[] MeshRenderers;
+
+    public void Reset()
+    {
+        LoadMeshes();
+    }
+
+    public void LoadMeshes()
+    {
+        MeshRenderers = GetComponentsInChildren<MeshRenderer>();
+    }
+
     public int Angle
     {
         get
@@ -107,7 +118,10 @@ public class StructureProp : MonoBehaviour
 
     public void ShowMesh()
     {
-        MeshObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        foreach (MeshRenderer MeshObject in MeshRenderers)
+        {
+            MeshObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.On;
+        }
 
         BoxCollider[] colliders = GetComponents<BoxCollider>();
         foreach (BoxCollider coll in colliders)
@@ -118,10 +132,13 @@ public class StructureProp : MonoBehaviour
 
     public void HideMesh(Material hiddenMaterial)
     {
-        MeshObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+        foreach (MeshRenderer MeshObject in MeshRenderers)
+        {
+            MeshObject.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.ShadowsOnly;
+        }
 
         BoxCollider[] colliders = GetComponents<BoxCollider>();
-        foreach(BoxCollider coll in colliders)
+        foreach (BoxCollider coll in colliders)
         {
             coll.enabled = false;
         }
@@ -129,33 +146,38 @@ public class StructureProp : MonoBehaviour
 
     public void SetMaterial(Material material, bool ReplaceOriginalMaterial = false)
     {
-        MeshRenderer renderer = MeshObject.GetComponent<MeshRenderer>();
-        if (renderer.material == material)
+        foreach (MeshRenderer MeshObject in MeshRenderers)
         {
-            return;
-        }
+            MeshRenderer renderer = MeshObject.GetComponent<MeshRenderer>();
+            if (renderer.material == material)
+            {
+                return;
+            }
 
 
-        SaveOriginalMaterials();
+            SaveOriginalMaterials();
 
-        if (ReplaceOriginalMaterial)
-        {
-            renderer.materials = new Material[1];
-            renderer.material = material;
-        }
-        else
-        {
-            List<Material> newMaterials = new List<Material>();
-            newMaterials.InsertRange(0, OriginalMaterials);
-            newMaterials.Insert(0, material);
+            if (ReplaceOriginalMaterial)
+            {
+                renderer.materials = new Material[1];
+                renderer.material = material;
+            }
+            else
+            {
+                List<Material> newMaterials = new List<Material>();
+                newMaterials.InsertRange(0, OriginalMaterials);
+                newMaterials.Insert(0, material);
 
-            renderer.materials = newMaterials.ToArray();
+                renderer.materials = newMaterials.ToArray();
+            }
         }
     }
 
     public void SetOriginalMaterials()
     {
         SaveOriginalMaterials();
+
+        MeshRenderer MeshObject = MeshRenderers[0];
 
         if (MeshObject.GetComponent<MeshRenderer>().material == OriginalMaterials[0])
         {
@@ -174,6 +196,7 @@ public class StructureProp : MonoBehaviour
 
         OriginalMaterials = new List<Material>();
 
+        MeshRenderer MeshObject = MeshRenderers[0];
         OriginalMaterials.InsertRange(0, MeshObject.GetComponent<MeshRenderer>().materials);
     }
 }

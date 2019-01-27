@@ -68,8 +68,9 @@ MonoBehaviour:
     SizeX: 2
     SizeZ: 1
     Type: 1
-  MeshObject: {fileID: 48824454851332837}
   Floor: 0
+  MeshRenderers:
+  - {fileID: 48824454853232645}
 --- !u!65 &2503733922348739441
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -23,11 +23,11 @@ public class RTSCamera : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || (MouseScroll && Input.mousePosition.y > (Screen.height - 1f)))
         {
-            transform.position += transform.TransformDirection(0, ScrollSpeed, 0) * Time.deltaTime;
+            transform.position += transform.TransformDirection(0, 0, ScrollSpeed) * Time.deltaTime;
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || (MouseScroll && Input.mousePosition.y < 1f))
         {
-            transform.position += transform.TransformDirection(0, -ScrollSpeed, 0) * Time.deltaTime;
+            transform.position += transform.TransformDirection(0, 0, -ScrollSpeed) * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || (MouseScroll && Input.mousePosition.x < 1f))
