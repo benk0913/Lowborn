@@ -28,46 +28,9 @@ public class GamePanelUI : MonoBehaviour
 
     public static GamePanelUI Instance;
 
-    public GameTool CurrentGameTool
-    {
-        get
-        {
-            return currentGameTool;
-        }
-        set
-        {
-            currentGameTool = value;
-
-            switch(currentGameTool)
-            {
-                case GameTool.Build:
-                    {
-                        BuildTool.gameObject.SetActive(true);
-                        PlayTool.gameObject.SetActive(false);
-
-                        PlayToolButton.gameObject.SetActive(true);
-                        BuildToolButton.gameObject.SetActive(false);
-                        break;
-                    }
-                case GameTool.Play:
-                    {
-                        BuildTool.gameObject.SetActive(false);
-                        PlayTool.gameObject.SetActive(true);
-
-                        PlayToolButton.gameObject.SetActive(false);
-                        BuildToolButton.gameObject.SetActive(true);
-                        break;
-                    }
-            }
-        }
-    }
-    GameTool currentGameTool;
-
     private void Awake()
     {
         Instance = this;
-
-        CurrentGameTool = GameTool.Play;
     }
 
     public void SetFloorText(string sText)
@@ -77,35 +40,35 @@ public class GamePanelUI : MonoBehaviour
 
     public void ViewUpperFloor()
     {
-        CORE.Instance.ViewFloor++;
+        Game.Instance.ViewFloor++;
     }
 
     public void ViewLowerFloor()
     {
-        CORE.Instance.ViewFloor--;
+        Game.Instance.ViewFloor--;
     }
 
-    public void SetViewMode(CORE.ViewMode Mode)
+    public void SetViewMode(ViewMode Mode)
     {
-        CORE.Instance.CurrentViewMode = Mode;
+        Game.Instance.CurrentViewMode = Mode;
 
-        switch(CORE.Instance.CurrentViewMode)
+        switch(Game.Instance.CurrentViewMode)
         {
-            case CORE.ViewMode.Outside:
+            case ViewMode.Outside:
                 {
                     ViewModeOutsideImg.color = Color.green;
                     ViewModeWallsImg.color = Color.green;
                     ViewModeHideWallImg.color = Color.green;
                     break;
                 }
-            case CORE.ViewMode.Walls:
+            case ViewMode.Walls:
                 {
                     ViewModeOutsideImg.color = Color.white;
                     ViewModeWallsImg.color = Color.green;
                     ViewModeHideWallImg.color = Color.green;
                     break;
                 }
-            case CORE.ViewMode.HideWalls:
+            case ViewMode.HideWalls:
                 {
                     ViewModeOutsideImg.color = Color.white;
                     ViewModeWallsImg.color = Color.white;
@@ -117,12 +80,34 @@ public class GamePanelUI : MonoBehaviour
     
     public void SetViewMode(int Mode)
     {
-        SetViewMode((CORE.ViewMode)Mode);
+        SetViewMode((ViewMode)Mode);
     }
 
     public void SetGameTool(int tool)
     {
-        CurrentGameTool = (GameTool)tool;
+        Game.Instance.CurrentGameTool = (GameTool)tool;
+
+        switch (Game.Instance.CurrentGameTool)
+        {
+            case GameTool.Build:
+                {
+                    BuildTool.gameObject.SetActive(true);
+                    PlayTool.gameObject.SetActive(false);
+
+                    PlayToolButton.gameObject.SetActive(true);
+                    BuildToolButton.gameObject.SetActive(false);
+                    break;
+                }
+            case GameTool.Play:
+                {
+                    BuildTool.gameObject.SetActive(false);
+                    PlayTool.gameObject.SetActive(true);
+
+                    PlayToolButton.gameObject.SetActive(false);
+                    BuildToolButton.gameObject.SetActive(true);
+                    break;
+                }
+        }
     }
 
     private void Update()
@@ -135,12 +120,5 @@ public class GamePanelUI : MonoBehaviour
         {
             ViewLowerFloor();
         }
-    }
-
-
-    public enum GameTool
-    {
-        Build,
-        Play
     }
 }

@@ -11,11 +11,22 @@ public class Actor : MonoBehaviour
     [SerializeField]
     Animator Anim;
 
+    public Character CurrentCharacter;
+
+    private void Start()
+    {
+        if(CurrentCharacter == null) //TODO Remove later, if generates characters twice.
+        {
+            CurrentCharacter = (Character) ScriptableObject.CreateInstance(typeof(Character));
+            CurrentCharacter.Randomize();
+        }
+    }
+
     private void Update()
     {
         if(Input.GetMouseButton(0))
         {
-            NavigateTo(CORE.Instance.GroundMouseHit.point);
+            NavigateTo(Game.Instance.GroundMouseHit.point);
         }
 
         Anim.SetFloat("Velocity", NavAgent.velocity.sqrMagnitude);

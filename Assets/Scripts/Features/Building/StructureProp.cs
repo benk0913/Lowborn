@@ -130,7 +130,7 @@ public class StructureProp : MonoBehaviour
         }
     }
 
-    public void HideMesh(Material hiddenMaterial)
+    public void HideMesh()
     {
         foreach (MeshRenderer MeshObject in MeshRenderers)
         {

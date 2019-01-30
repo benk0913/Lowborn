@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CORE : MonoBehaviour
+public class Game : MonoBehaviour
 {
     public bool IsMouseOnUI { private set; get; }
 
@@ -15,8 +15,37 @@ public class CORE : MonoBehaviour
     public Ray StructureMouseRay { private set; get; }
     public bool IsMouseOnStructure { private set; get; }
 
-    public static CORE Instance;
+    public static Game Instance;
 
+    public Session Session;
+
+    public GameTool CurrentGameTool
+    {
+        set
+        {
+            gameTool = value;
+            switch(gameTool)
+            {
+                case GameTool.Build:
+                    {
+                        BuildingTool.Instance.ActivateTool();
+
+                        break;
+                    }
+                case GameTool.Play:
+                    {
+                        BuildingTool.Instance.DeactivateTool();
+
+                        break;
+                    }
+            }
+        }
+        get
+        {
+            return gameTool;
+        }
+    }
+    GameTool gameTool;
 
     public ViewMode CurrentViewMode
     {
@@ -80,26 +109,47 @@ public class CORE : MonoBehaviour
     [SerializeField]
     public float SnapUnit;
 
-    [SerializeField]
-    Material HiddenStructureMaterial;
+
 
     private void Awake()
     {
         Instance = this;
+
+        Initialize();
     }
 
-    private void Update()
+
+    private void Initialize()
     {
-        RefreshMousePosition();
+        StartCoroutine(InitializeRoutine());
     }
 
-    private void LateUpdate()
+    IEnumerator InitializeRoutine()
     {
-        if(CurrentViewMode == ViewMode.HideWalls)
+        yield return 0;
+
+        while (ResourcesLoader.Instance.m_bLoading)
         {
-            HideObstructingWalls();
+            yield return 0;
+        }
+
+        CurrentGameTool = GameTool.Play;
+
+        StartCoroutine(RefreshGameRoutine());
+    }
+
+    IEnumerator RefreshGameRoutine()
+    {
+        while(true)
+        {
+            RefreshMousePosition();
+
+            yield return new WaitForEndOfFrame();
+
+            RefreshVisibleWalls();
         }
     }
+
 
     private void RefreshMousePosition()
     {
@@ -155,7 +205,7 @@ public class CORE : MonoBehaviour
 
                             for (int b = 0; b < structures.Count; b++)
                             {
-                                structures[b].HideMesh(HiddenStructureMaterial);
+                                structures[b].HideMesh();
                             }
                         }
                         else
@@ -174,8 +224,13 @@ public class CORE : MonoBehaviour
         }
     }
 
-    private void HideObstructingWalls()
+    private void RefreshVisibleWalls()
     {
+        if (CurrentViewMode != ViewMode.HideWalls)
+        {
+            return;
+        }
+
         List<StructureProp> structures = BuildingTool.Instance.GetStructuresInFloor(ViewFloor);
 
         for (int b = 0; b < structures.Count; b++)
@@ -185,7 +240,7 @@ public class CORE : MonoBehaviour
                 (structures[b].transform.position.z   + (SnapUnit * viewFloor) + SnapUnit < GroundMouseHit.point.z
                 || structures[b].transform.position.x + (SnapUnit * viewFloor) + SnapUnit < GroundMouseHit.point.x)) // Closer than mouse position and in hide walls mode.
             {
-                structures[b].HideMesh(HiddenStructureMaterial);
+                structures[b].HideMesh();
                 continue;
             }
 
@@ -193,7 +248,7 @@ public class CORE : MonoBehaviour
         }
     }
 
-    public float RoundToNearestUnit(float Value)
+    public float GetNearestSnapUnit(float Value)
     {
         int integer = Mathf.RoundToInt(Value);
 
@@ -206,11 +261,18 @@ public class CORE : MonoBehaviour
     }
 
 
-    public enum ViewMode
-    {
-        Outside,
-        Walls,
-        HideWalls
-    }
-
 }
+
+public enum ViewMode
+{
+    Outside,
+    Walls,
+    HideWalls
+}
+
+public enum GameTool
+{
+    Build,
+    Play
+}
+

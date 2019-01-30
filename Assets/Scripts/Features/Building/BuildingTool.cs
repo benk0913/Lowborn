@@ -98,7 +98,7 @@ public class BuildingTool : MonoBehaviour
 
     void RefreshBuildingMarker()
     {
-        if (CORE.Instance.IsMouseOnGround)
+        if (Game.Instance.IsMouseOnGround)
         {
             if (!marker.activeInHierarchy)
             {
@@ -107,9 +107,9 @@ public class BuildingTool : MonoBehaviour
 
             marker.transform.position =
                 new Vector3(
-                    CORE.Instance.RoundToNearestUnit(CORE.Instance.GroundMouseHit.point.x),
-                    CORE.Instance.RoundToNearestUnit(CORE.Instance.GroundMouseHit.point.y + ((CurrentFloor*2) * CORE.Instance.SnapUnit)),
-                    CORE.Instance.RoundToNearestUnit(CORE.Instance.GroundMouseHit.point.z));
+                    Game.Instance.GetNearestSnapUnit(Game.Instance.GroundMouseHit.point.x),
+                    Game.Instance.GetNearestSnapUnit(Game.Instance.GroundMouseHit.point.y + ((CurrentFloor*2) * Game.Instance.SnapUnit)),
+                    Game.Instance.GetNearestSnapUnit(Game.Instance.GroundMouseHit.point.z));
         }
         else
         {
@@ -179,9 +179,9 @@ public class BuildingTool : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (CORE.Instance.IsMouseOnStructure)
+            if (Game.Instance.IsMouseOnStructure)
             {
-                SelectProp(CORE.Instance.StructureMouseHit.collider.GetComponent<StructureProp>());
+                SelectProp(Game.Instance.StructureMouseHit.collider.GetComponent<StructureProp>());
             }
         }
     }
@@ -190,9 +190,9 @@ public class BuildingTool : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            if (CORE.Instance.IsMouseOnStructure)
+            if (Game.Instance.IsMouseOnStructure)
             {
-                SelectProp(CORE.Instance.StructureMouseHit.collider.GetComponent<StructureProp>());
+                SelectProp(Game.Instance.StructureMouseHit.collider.GetComponent<StructureProp>());
             }
         }
         else if (Input.GetMouseButtonDown(1))
@@ -208,7 +208,7 @@ public class BuildingTool : MonoBehaviour
 
     void SelectProp(StructureProp prop)
     {
-        StructureProp propToSelect = CORE.Instance.StructureMouseHit.collider.GetComponent<StructureProp>();
+        StructureProp propToSelect = Game.Instance.StructureMouseHit.collider.GetComponent<StructureProp>();
 
         if (propToSelect == null)
         {
@@ -246,7 +246,7 @@ public class BuildingTool : MonoBehaviour
 
     void PlaceBlueprintItem()
     {
-        if(CORE.Instance.IsMouseOnUI)
+        if(Game.Instance.IsMouseOnUI)
         {
             return;
         }
