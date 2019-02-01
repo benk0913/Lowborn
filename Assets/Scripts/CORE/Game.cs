@@ -114,25 +114,12 @@ public class Game : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-
-        Initialize();
     }
 
 
-    private void Initialize()
+    public void Initialize(Session currentSession)
     {
-        StartCoroutine(InitializeRoutine());
-    }
-
-    IEnumerator InitializeRoutine()
-    {
-        yield return 0;
-
-        while (ResourcesLoader.Instance.m_bLoading)
-        {
-            yield return 0;
-        }
-
+        this.Session = currentSession;
         CurrentGameTool = GameTool.Play;
 
         StartCoroutine(RefreshGameRoutine());

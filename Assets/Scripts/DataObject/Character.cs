@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Character", menuName = "DataObjects/Character", order = 2)]
 public class Character : ScriptableObject
 {
-    public string Name = "Unknown";
     public string ID;
 
     public GenderType Gender = GenderType.Male;
@@ -41,8 +40,43 @@ public class Character : ScriptableObject
     }
     int age = 16;
 
-    public Character Heir = null;
 
+    public VCSet VisualSet;
+    public int HairColor;
+    public int Hair;
+    public int SkinColor;
+    public int Face;
+    public int Clothing;
+
+    public Sprite HairSprite
+    {
+        get
+        {
+            return VisualSet.HairColor[HairColor].Pool[Hair].SetSprite;
+        }
+    }
+
+    public Sprite FaceSprite
+    {
+        get
+        {
+            return VisualSet.SkinColor[SkinColor].Pool[Face].SetSprite;
+        }
+    }
+
+    public Sprite ClothingSprite
+    {
+        get
+        {
+            return VisualSet.SkinColor[0].Pool[Clothing].SetSprite;
+        }
+    }
+
+
+
+    public Character Heir = null;
+    
+    
 
 
     public enum GenderType
@@ -66,7 +100,7 @@ public class Character : ScriptableObject
 
     public void Randomize()
     {
-        this.Name = "Random Name";
+        this.name = "Random Name";
         this.Gender = (GenderType) Random.Range(0, 2);
         this.Age = Random.Range(5, 50);
     }

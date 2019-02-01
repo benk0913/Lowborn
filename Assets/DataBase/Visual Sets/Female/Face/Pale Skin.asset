@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 685675847ded86246be371684124dbbe, type: 3}
+  m_Name: Pale Skin
+  m_EditorClassIdentifier: 
+  Type: 0
+  Pool:
+  - {fileID: 11400000, guid: c0550a437be7bc54f85fdaef4dde6196, type: 2}
+  - {fileID: 11400000, guid: eb7abe8745ac8cb40acf893ebf3ba0e9, type: 2}
+  - {fileID: 11400000, guid: 6e0098cead8fe194cb62ff78d7a6ff4e, type: 2}
+  - {fileID: 11400000, guid: 7ccb566317faddb448a9b6a628b0cc73, type: 2}
+  - {fileID: 11400000, guid: 8ac73e3979d16134d8821bcbfb0f9ac5, type: 2}
+  - {fileID: 11400000, guid: 6a0274f27c009f546920b945316e9767, type: 2}
+  - {fileID: 11400000, guid: a268bfc1c39efa0449ad442f38d2d2e6, type: 2}
+  - {fileID: 11400000, guid: 5aba342445f3a9b418ebc7f7eb51b8a4, type: 2}
+  SetSprite: {fileID: 0}
+  SetMaterial: {fileID: 0}
+  SetMesh: {fileID: 0}

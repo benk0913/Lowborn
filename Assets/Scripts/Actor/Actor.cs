@@ -24,10 +24,6 @@ public class Actor : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetMouseButton(0))
-        {
-            NavigateTo(Game.Instance.GroundMouseHit.point);
-        }
 
         Anim.SetFloat("Velocity", NavAgent.velocity.sqrMagnitude);
     }
