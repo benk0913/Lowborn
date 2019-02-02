@@ -14,6 +14,9 @@ public class CORE : MonoBehaviour
     [System.NonSerialized]
     public List<GameObject> DontDestroyMeOnLoadList = new List<GameObject>();
 
+    [SerializeField]
+    public GameDB Database;
+
     #endregion
 
 

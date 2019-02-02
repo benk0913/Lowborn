@@ -17,10 +17,16 @@ public class PortraitUI : MonoBehaviour
     [SerializeField]
     Image Clothing;
 
+    public void Setup(Character character)
+    {
+        this.cCharacter = character;
+        RefreshVisuals();
+    }
+
     public void RefreshVisuals()
     {
-        Face.sprite = cCharacter.FaceSprite;
-        Hair.sprite = cCharacter.HairSprite;
-        Clothing.sprite = cCharacter.ClothingSprite;
+        Face.sprite = cCharacter.Face.Sprite;
+        Hair.sprite = cCharacter.Hair.Sprite;
+        Clothing.sprite = cCharacter.Clothing.Sprite;
     }
 }

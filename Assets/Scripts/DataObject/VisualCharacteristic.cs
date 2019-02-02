@@ -13,7 +13,7 @@ public class VisualCharacteristic : ScriptableObject
     public List<VisualCharacteristic> Pool = new List<VisualCharacteristic>();
 
     [SerializeField]
-    public Sprite SetSprite;
+    public Sprite Sprite;
 
     [SerializeField]
     public Material SetMaterial;
@@ -21,43 +21,70 @@ public class VisualCharacteristic : ScriptableObject
     [SerializeField]
     public Mesh SetMesh;
 
-    public int CurrentIndex = 0;
-    
-    public void Next()
+
+
+    public VisualCharacteristic GetNext(VisualCharacteristic set)
     {
-        CurrentIndex++;
-        if(CurrentIndex >= Pool.Count)
+        int cIndex = GetVCIndex(set);
+        cIndex++;
+
+        if (cIndex >= Pool.Count)
         {
-            CurrentIndex = 0;
+            cIndex = 0;
         }
+
+        return Pool[cIndex];
     }
 
-    public void Previous()
+    public VisualCharacteristic GetPrevious(VisualCharacteristic set)
     {
-        CurrentIndex--;
-        if (CurrentIndex < 0)
+        int cIndex = GetVCIndex(set);
+        cIndex--;
+
+        if (cIndex < 0)
         {
-            CurrentIndex = Pool.Count - 1;
+            cIndex = Pool.Count - 1;
         }
+
+        return Pool[cIndex];
     }
 
-    public VisualCharacteristic GetVCByName(string sName)
+    int GetVCIndex(VisualCharacteristic set)
     {
-        if(this.name == sName)
+        for (int i = 0; i < Pool.Count; i++)
+        {
+            if (Pool[i] == set)
+            {
+                return i;
+            }
+        }
+
+        return 0;
+    }
+
+    public VisualCharacteristic GetVCByName(string sName, bool fallback = true)
+    {
+
+        if (this.name == sName)
         {
             return this;
         }
 
         VisualCharacteristic visualChar = null;
-        foreach(VisualCharacteristic vc in Pool)
+        foreach (VisualCharacteristic vc in Pool)
         {
             visualChar = vc.GetVCByName(sName);
 
-            if (vc != null 
+            if (vc != null
                 && vc.name == sName)
             {
                 return visualChar;
             }
+        }
+
+        if(fallback && Pool.Count > 0)
+        {
+            return Pool[0];
         }
 
         return null;
