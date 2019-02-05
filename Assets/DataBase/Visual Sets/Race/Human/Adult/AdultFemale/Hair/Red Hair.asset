@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 2
   Pool:
-  - {fileID: 11400000, guid: 61b48a1633026094b8ec4eecce517e70, type: 2}
-  - {fileID: 11400000, guid: e28b75ce7e4942f46bc4ed53ca06d2b3, type: 2}
-  - {fileID: 11400000, guid: 87940948df4730e49b741d64fb6814c1, type: 2}
-  - {fileID: 11400000, guid: 0bd8a484f3b81f349a3f43c0b538ec14, type: 2}
-  SetSprite: {fileID: 0}
+  - {fileID: 11400000, guid: e765cc87a7d26e643b9f60405729bc31, type: 2}
+  - {fileID: 11400000, guid: 6f610a48c9f2bd442ac32560eab31e97, type: 2}
+  - {fileID: 11400000, guid: 63cf8d2a8bd9d9d41845da4788bdaaa1, type: 2}
+  - {fileID: 11400000, guid: 8cef057e24b71c341bd094caa13f7bf5, type: 2}
+  - {fileID: 11400000, guid: e3ab02b7111622c47b8658ab0fdb3b98, type: 2}
+  Sprite: {fileID: 0}
   SetMaterial: {fileID: 0}
   SetMesh: {fileID: 0}
