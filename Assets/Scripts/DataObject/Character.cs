@@ -130,18 +130,58 @@ public class Character : ScriptableObject
 
     public void RefreshVisualTree()
     {
+        //TODO Get rid of this when we have enough data.
+        RaceSet raceSet = CORE.Instance.Database.GetRace("Human");
+
+        AgeSet ageSet = CORE.Instance.Database.GetRace("Human").GetAgeSet(AgeTypeEnum.Adult);
+
+        if (ageSet == null)
+        {
+            Debug.LogError("NO AGE SET! " + AgeTypeEnum.Adult.ToString());
+            return;
+        }
+
+
         VisualSet = (gender == GenderType.Male) ?
             CORE.Instance.Database.GetRace("Human").GetAgeSet(AgeType).Male : CORE.Instance.Database.GetRace("Human").GetAgeSet(AgeType).Female;
+        
+
+        if (VisualSet == null)
+        {
+            Debug.LogError("NO VISUAL SET! " + age + " | "  + gender.ToString() + " | " + AgeTypeEnum.Adult.ToString());
+            return;
+        }
+
 
         SkinColor = VisualSet.SkinColors.GetVCByName(SkinColor.name);
 
         HairColor = VisualSet.HairColor.GetVCByName(HairColor.name);
+
+        Clothing = VisualSet.Clothing.GetVCByName(Clothing.name);
     }
 
     void InitializeLooks()
     {
         //TODO Get rid of this when we have enough data.
-        VisualSet = CORE.Instance.Database.GetRace("Human").GetAgeSet(AgeTypeEnum.Adult).Female;
+        RaceSet raceSet = CORE.Instance.Database.GetRace("Human");
+
+        AgeSet ageSet = CORE.Instance.Database.GetRace("Human").GetAgeSet(AgeTypeEnum.Adult);
+
+        if(ageSet == null)
+        {
+            Debug.LogError("NO AGE SET! "+AgeTypeEnum.Adult.ToString());
+            return;
+        }
+
+        VisualSet = Gender == GenderType.Male? 
+            CORE.Instance.Database.GetRace("Human").GetAgeSet(AgeTypeEnum.Adult).Male : 
+            CORE.Instance.Database.GetRace("Human").GetAgeSet(AgeTypeEnum.Adult).Female;
+
+        if (VisualSet == null)
+        {
+            Debug.LogError("NO VISUAL SET! " + AgeTypeEnum.Adult.ToString());
+            return;
+        }
 
         skinColor = VisualSet.SkinColors.Pool[0];
         hairColor = VisualSet.HairColor.Pool[0];

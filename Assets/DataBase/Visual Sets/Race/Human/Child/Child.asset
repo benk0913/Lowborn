@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12164c10be9b7f04db9a6d7f73b95ad1, type: 3}
   m_Name: Child
   m_EditorClassIdentifier: 
-  Age: 2
+  Age: 1
   Male: {fileID: 11400000, guid: ed6e90aa0e590c8448eca7a8ee093f54, type: 2}
   Female: {fileID: 0}

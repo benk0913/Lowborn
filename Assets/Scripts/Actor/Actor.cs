@@ -29,6 +29,9 @@ public class Actor : MonoBehaviour
 
     private void Update()
     {
+        //TODO REMOVE LATER
+        return;
+
         Body.Anim.SetFloat("Velocity", NavAgent.velocity.sqrMagnitude);
     }
 
@@ -51,6 +54,10 @@ public class Actor : MonoBehaviour
 
     public void RefreshVisuals()
     {
+        //TODO Remove LATER
+        return;
+
+
         Destroy(Body);
 
         SetBody(Instantiate(CurrentCharacter.VisualSet.BodyModel));   

@@ -34,6 +34,9 @@ public class CharacterCreationUI : MonoBehaviour
     TextMeshProUGUI HairName;
 
     [SerializeField]
+    TextMeshProUGUI AgeName;
+
+    [SerializeField]
     TextMeshProUGUI ClothingName;
 
     Character CurrentCharacter;
@@ -140,7 +143,23 @@ public class CharacterCreationUI : MonoBehaviour
     }
 
 
-    //TODO Remove Later (Should not be selected on char creation)
+    //TODO Those below are not configurable.
+    public void NextAge()
+    {
+        CurrentCharacter.Age++;
+
+        RefreshVisual();
+        AgeName.text = CurrentCharacter.Age.ToString();
+    }
+
+    public void PreviousAge()
+    {
+        CurrentCharacter.Age--;
+
+        RefreshVisual();
+        AgeName.text = CurrentCharacter.Age.ToString();
+    }
+    
     public void NextClothing()
     {
         CurrentCharacter.Clothing = CurrentCharacter.VisualSet.Clothing.GetNext(CurrentCharacter.Clothing);
