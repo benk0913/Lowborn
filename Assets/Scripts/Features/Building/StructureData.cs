@@ -5,14 +5,6 @@ using UnityEngine;
 [System.Serializable]
 public class StructureData
 {
-    [SerializeField]
-    public string Name;
-
-    [SerializeField]
-    public string Description;
-
-    [SerializeField]
-    ValueData PriceValue;
 
     [SerializeField]
     public int SizeX = 1;
@@ -21,13 +13,5 @@ public class StructureData
     public int SizeZ = 0;
 
     [SerializeField]
-    public StructureType Type;
-
-
-    public enum StructureType
-    {
-        Wall,
-        Floor,
-        Decoration
-    }
+    public PropType Type;
 }

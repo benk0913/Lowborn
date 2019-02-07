@@ -61,10 +61,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Data:
-    Name: Wooden Floor
-    Description: 
-    PriceValue:
-      Silver: 10
     SizeX: 2
     SizeZ: 2
     Type: 1

@@ -222,7 +222,7 @@ public class Game : MonoBehaviour
 
         for (int b = 0; b < structures.Count; b++)
         {
-            if (structures[b].Data.Type == StructureData.StructureType.Wall
+            if (structures[b].Data.Type == PropType.Wall
                 &&
                 (structures[b].transform.position.z   + (SnapUnit * viewFloor) + SnapUnit < GroundMouseHit.point.z
                 || structures[b].transform.position.x + (SnapUnit * viewFloor) + SnapUnit < GroundMouseHit.point.x)) // Closer than mouse position and in hide walls mode.

@@ -13,3 +13,9 @@ public enum AgeTypeEnum
     Old
 }
 
+public enum PropType
+{
+    Wall,
+    Floor,
+    Decoration
+}
