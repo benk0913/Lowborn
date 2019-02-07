@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AgeSets:
   - {fileID: 11400000, guid: 387fc8025cc072e44aded9173ebf8a2f, type: 2}
+  - {fileID: 11400000, guid: 94c1c96d21283724697a4da561732db1, type: 2}
   AdultFat: {fileID: 0}
   AdultUgly: {fileID: 0}
