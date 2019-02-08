@@ -15,8 +15,9 @@ MonoBehaviour:
   Type: 0
   Pool:
   - {fileID: 11400000, guid: edccf1ccf9db24440abb76e6f2a1287a, type: 2}
-  - {fileID: 11400000, guid: f62aa90d0cb91f24a8bb27b33f19264e, type: 2}
-  - {fileID: 11400000, guid: fba507c3674d78d438883df14f15bdc0, type: 2}
-  SetSprite: {fileID: 0}
+  - {fileID: 11400000, guid: 9e9de6dd59450804bb2774749affa3f7, type: 2}
+  - {fileID: 11400000, guid: 2db515ff79594a147b41e0f7a4fcd186, type: 2}
+  - {fileID: 11400000, guid: a0a7758e772cc3049a9c5264efca5616, type: 2}
+  Sprite: {fileID: 0}
   SetMaterial: {fileID: 0}
   SetMesh: {fileID: 0}
