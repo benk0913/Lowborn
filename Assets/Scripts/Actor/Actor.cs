@@ -64,6 +64,12 @@ public class Actor : MonoBehaviour
         Body.transform.SetParent(BodyContainer);
         Body.transform.position = BodyContainer.position;
         Body.transform.rotation = BodyContainer.rotation;
+
+
+        Body.BodyRenderer.materials[0] = CurrentCharacter.Face.SetMaterial;
+        Body.HeadRenderer.materials[0] = CurrentCharacter.Face.SetMaterial;
+
+        Body.BodyRenderer.materials[1] = CurrentCharacter.Clothing.SetMaterial;
     }
 
     #endregion

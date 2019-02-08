@@ -8,7 +8,10 @@ public class ActorBody : MonoBehaviour
     public Animator Anim;
 
     [SerializeField]
-    public SkinnedMeshRenderer Renderer;
+    public SkinnedMeshRenderer BodyRenderer;
+
+    [SerializeField]
+    public MeshRenderer HeadRenderer;
 
 
 }
