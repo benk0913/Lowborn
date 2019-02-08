@@ -1,10 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(fileName = "Character", menuName = "DataObjects/Character", order = 2)]
 public class Character : ScriptableObject
 {
+    public UnityEvent VisualChanged = new UnityEvent();
+
+
     public string ID;
     public GenderSet VisualSet;
 
@@ -84,6 +88,7 @@ public class Character : ScriptableObject
             skinColor = value;
 
             Face = skinColor.GetVCByName(Face.name);
+            VisualChanged.Invoke();
         }
     }
     VisualCharacteristic skinColor;
@@ -102,14 +107,54 @@ public class Character : ScriptableObject
             hairColor = value;
 
             Hair = hairColor.GetVCByName(Hair.name);
+            VisualChanged.Invoke();
         }
     }
     VisualCharacteristic hairColor;
 
-    public VisualCharacteristic Face;
-    public VisualCharacteristic Hair;
-    public VisualCharacteristic Clothing;
-   
+    public VisualCharacteristic Face
+    {
+        get
+        {
+            return face;
+        }
+        set
+        {
+            face = value;
+            VisualChanged.Invoke();
+        }
+    }
+    VisualCharacteristic face;
+
+    public VisualCharacteristic Hair
+    {
+        get
+        {
+            return hair;
+        }
+        set
+        {
+            hair = value;
+            VisualChanged.Invoke();
+        }
+    }
+    VisualCharacteristic hair;
+
+    public VisualCharacteristic Clothing
+    {
+        get
+        {
+            return clothing;
+        }
+        set
+        {
+            clothing = value;
+            VisualChanged.Invoke();
+        }
+    }
+    VisualCharacteristic clothing;
+
+
 
     public Character()
     {
@@ -158,6 +203,8 @@ public class Character : ScriptableObject
         HairColor = VisualSet.HairColor.GetVCByName(HairColor.name);
 
         Clothing = VisualSet.Clothing.GetVCByName(Clothing.name);
+
+        VisualChanged.Invoke();
     }
 
     void InitializeLooks()

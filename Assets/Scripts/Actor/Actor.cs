@@ -23,7 +23,8 @@ public class Actor : MonoBehaviour
         {
             CurrentCharacter = (Character) ScriptableObject.CreateInstance(typeof(Character));
             CurrentCharacter.Randomize();
-            
+
+            SetCharacter(CurrentCharacter);
         }
     }
 
@@ -36,7 +37,14 @@ public class Actor : MonoBehaviour
 
     public void SetCharacter(Character character)
     {
+        if(CurrentCharacter!=null)
+        {
+            character.VisualChanged.RemoveListener(RefreshVisuals);
+        }
+
         CurrentCharacter = character;
+
+        character.VisualChanged.AddListener(RefreshVisuals);
     }
 
     void NavigateTo(Vector3 targetPosition)
@@ -51,25 +59,33 @@ public class Actor : MonoBehaviour
 
     public void RefreshVisuals()
     {
-        Destroy(Body);
+        if(CurrentCharacter.VisualSet.BodyModel == null)
+        {
+            Debug.LogError(this.name + " : NO BODY MODEL! ");
+            return;
+        }
 
-        SetBody(Instantiate(CurrentCharacter.VisualSet.BodyModel));   
+        if (CurrentCharacter.VisualSet.BodyModel.name != Body.gameObject.name)
+        {
+            Destroy(Body.gameObject);
+
+            Body = Instantiate(CurrentCharacter.VisualSet.BodyModel).GetComponent<ActorBody>();
+            Body.transform.SetParent(BodyContainer);
+            Body.transform.position = BodyContainer.position;
+            Body.transform.rotation = BodyContainer.rotation;
+        }
+
+        Material[] newMaterials = new Material[2];
+        newMaterials[0] = CurrentCharacter.Face.SetMaterial;
+        newMaterials[1] = CurrentCharacter.Clothing.SetMaterial;
+        Body.BodyRenderer.materials = newMaterials;
 
 
-    }
+        newMaterials = new Material[2];
+        newMaterials[0] = CurrentCharacter.Face.SetMaterial;
+        newMaterials[1] = CurrentCharacter.Hair.SetMaterial;
+        Body.HeadRenderer.materials = newMaterials;
 
-    void SetBody(GameObject newBody)
-    {
-        Body = newBody.GetComponent<ActorBody>();
-        Body.transform.SetParent(BodyContainer);
-        Body.transform.position = BodyContainer.position;
-        Body.transform.rotation = BodyContainer.rotation;
-
-
-        Body.BodyRenderer.materials[0] = CurrentCharacter.Face.SetMaterial;
-        Body.HeadRenderer.materials[0] = CurrentCharacter.Face.SetMaterial;
-
-        Body.BodyRenderer.materials[1] = CurrentCharacter.Clothing.SetMaterial;
     }
 
     #endregion

@@ -45,10 +45,11 @@ public class CharacterCreationUI : MonoBehaviour
     {
         CurrentCharacter = (Character)ScriptableObject.CreateInstance(typeof(Character));
 
-        Portrait.Setup(CurrentCharacter);
+        Portrait.SetCharacter(CurrentCharacter);
         ActorObject.SetCharacter(CurrentCharacter);
 
-        SetGender(1);
+        CurrentCharacter.Age = 20;
+        SetGender(0);
     }
 
     public void SetGender(int Gender)
@@ -65,8 +66,7 @@ public class CharacterCreationUI : MonoBehaviour
             MaleButton.interactable = true;
             FemaleButton.interactable = false;
         }
-
-        RefreshVisual();
+        
     }
 
     public void SetName()
@@ -77,8 +77,7 @@ public class CharacterCreationUI : MonoBehaviour
     public void NextSkinColor()
     {
         CurrentCharacter.SkinColor = CurrentCharacter.VisualSet.SkinColors.GetNext(CurrentCharacter.SkinColor);
-
-        RefreshVisual();
+        
         SkinColorName.text = CurrentCharacter.SkinColor.name;
         FaceName.text = CurrentCharacter.Face.name;
     }
@@ -87,7 +86,6 @@ public class CharacterCreationUI : MonoBehaviour
     {
         CurrentCharacter.SkinColor = CurrentCharacter.VisualSet.SkinColors.GetPrevious(CurrentCharacter.SkinColor);
 
-        RefreshVisual();
         SkinColorName.text = CurrentCharacter.SkinColor.name;
         FaceName.text = CurrentCharacter.Face.name;
     }
@@ -95,24 +93,21 @@ public class CharacterCreationUI : MonoBehaviour
     public void NextFace()
     {
         CurrentCharacter.Face = CurrentCharacter.SkinColor.GetNext(CurrentCharacter.Face);
-
-        RefreshVisual();
+        
         FaceName.text = CurrentCharacter.Face.name;
     }
 
     public void PreviousFace()
     {
         CurrentCharacter.Face = CurrentCharacter.SkinColor.GetPrevious(CurrentCharacter.Face);
-
-        RefreshVisual();
+        
         FaceName.text = CurrentCharacter.Face.name;
     }
 
     public void NextHairColor()
     {
         CurrentCharacter.HairColor = CurrentCharacter.VisualSet.HairColor.GetNext(CurrentCharacter.HairColor);
-
-        RefreshVisual();
+        
         HairColorName.text = CurrentCharacter.HairColor.name;
         HairName.text = CurrentCharacter.Hair.name;
     }
@@ -120,8 +115,7 @@ public class CharacterCreationUI : MonoBehaviour
     public void PreviousHairColor()
     {
         CurrentCharacter.HairColor = CurrentCharacter.VisualSet.HairColor.GetPrevious(CurrentCharacter.HairColor);
-
-        RefreshVisual();
+        
         HairColorName.text = CurrentCharacter.HairColor.name;
         HairName.text = CurrentCharacter.Hair.name;
     }
@@ -129,16 +123,14 @@ public class CharacterCreationUI : MonoBehaviour
     public void NextHairStyle()
     {
         CurrentCharacter.Hair = CurrentCharacter.HairColor.GetNext(CurrentCharacter.Hair);
-
-        RefreshVisual();
+        
         HairName.text = CurrentCharacter.Hair.name;
     }
 
     public void PreviousHairStyle()
     {
         CurrentCharacter.Hair = CurrentCharacter.HairColor.GetPrevious(CurrentCharacter.Hair);
-
-        RefreshVisual();
+        
         HairName.text = CurrentCharacter.Hair.name;
     }
 
@@ -148,40 +140,33 @@ public class CharacterCreationUI : MonoBehaviour
     {
         CurrentCharacter.Age++;
 
-        RefreshVisual();
         AgeName.text = CurrentCharacter.Age.ToString();
     }
 
     public void PreviousAge()
     {
         CurrentCharacter.Age--;
-
-        RefreshVisual();
+        
         AgeName.text = CurrentCharacter.Age.ToString();
     }
     
     public void NextClothing()
     {
         CurrentCharacter.Clothing = CurrentCharacter.VisualSet.Clothing.GetNext(CurrentCharacter.Clothing);
-
-        RefreshVisual();
+        
         ClothingName.text = CurrentCharacter.Clothing.name;
     }
 
     public void PreviousClothing()
     {
         CurrentCharacter.Clothing = CurrentCharacter.VisualSet.Clothing.GetPrevious(CurrentCharacter.Clothing);
-
-        RefreshVisual();
+        
         ClothingName.text = CurrentCharacter.Clothing.name;
     }
 
 
-    void RefreshVisual()
+    public void SelectCharacter()
     {
-        Portrait.RefreshVisuals();
-        ActorObject.RefreshVisuals();
+        MainMenuUI.Instance.SelectCharacter(CurrentCharacter);
     }
-
-
 }

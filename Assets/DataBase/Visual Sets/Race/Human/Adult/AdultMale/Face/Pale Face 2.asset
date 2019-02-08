@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   Pool: []
-  Sprite: {fileID: 21300000, guid: 22c48e6a702935a4d80ba731d2d1da65, type: 3}
-  SetMaterial: {fileID: 0}
+  Sprite: {fileID: 21300000, guid: 9e3779f9d93e8b64d9a557d4716aa098, type: 3}
+  SetMaterial: {fileID: 2100000, guid: 6ea6471c247785e4cb45b45b6919e1c0, type: 2}
   SetMesh: {fileID: 0}

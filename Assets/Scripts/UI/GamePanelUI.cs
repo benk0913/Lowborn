@@ -40,19 +40,19 @@ public class GamePanelUI : MonoBehaviour
 
     public void ViewUpperFloor()
     {
-        Game.Instance.ViewFloor++;
+        LocationMap.Instance.ViewFloor++;
     }
 
     public void ViewLowerFloor()
     {
-        Game.Instance.ViewFloor--;
+        LocationMap.Instance.ViewFloor--;
     }
 
     public void SetViewMode(ViewMode Mode)
     {
-        Game.Instance.CurrentViewMode = Mode;
+        LocationMap.Instance.CurrentViewMode = Mode;
 
-        switch(Game.Instance.CurrentViewMode)
+        switch(LocationMap.Instance.CurrentViewMode)
         {
             case ViewMode.Outside:
                 {
@@ -85,9 +85,9 @@ public class GamePanelUI : MonoBehaviour
 
     public void SetGameTool(int tool)
     {
-        Game.Instance.CurrentGameTool = (GameTool)tool;
+        LocationMap.Instance.CurrentGameTool = (GameTool)tool;
 
-        switch (Game.Instance.CurrentGameTool)
+        switch (LocationMap.Instance.CurrentGameTool)
         {
             case GameTool.Build:
                 {

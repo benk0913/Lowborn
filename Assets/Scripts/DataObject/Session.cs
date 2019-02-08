@@ -17,5 +17,8 @@ public class Session : ScriptableObject
     [SerializeField]
     Sprite Map;
 
+    [SerializeField]
+    public string StartingLocation;
+
 
 }

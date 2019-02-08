@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PortraitUI : MonoBehaviour
 {
     [SerializeField]
-    public Character cCharacter;
+    public Character CurrentCharacter;
 
     [SerializeField]
     Image Face;
@@ -17,16 +17,31 @@ public class PortraitUI : MonoBehaviour
     [SerializeField]
     Image Clothing;
 
-    public void Setup(Character character)
+    private void Awake()
     {
-        this.cCharacter = character;
+        if(CurrentCharacter != null)
+        {
+            SetCharacter(CurrentCharacter);
+        }
+    }
+
+    public void SetCharacter(Character character)
+    {
+        if(CurrentCharacter != null)
+        {
+            character.VisualChanged.RemoveListener(RefreshVisuals);
+        }
+
+        CurrentCharacter = character;
         RefreshVisuals();
+
+        character.VisualChanged.AddListener(RefreshVisuals);
     }
 
     public void RefreshVisuals()
     {
-        Face.sprite = cCharacter.Face.Sprite;
-        Hair.sprite = cCharacter.Hair.Sprite;
-        Clothing.sprite = cCharacter.Clothing.Sprite;
+        Face.sprite = CurrentCharacter.Face.Sprite;
+        Hair.sprite = CurrentCharacter.Hair.Sprite;
+        Clothing.sprite = CurrentCharacter.Clothing.Sprite;
     }
 }

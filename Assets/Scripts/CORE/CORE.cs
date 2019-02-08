@@ -17,6 +17,8 @@ public class CORE : MonoBehaviour
     [SerializeField]
     public GameDB Database;
 
+    public Session CurrentScenario;
+
     #endregion
 
 
@@ -63,6 +65,13 @@ public class CORE : MonoBehaviour
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
+    public void PlayScenario(Session selectedScenario)
+    {
+        CurrentScenario = selectedScenario;
+
+        LoadScene(selectedScenario.StartingLocation);
+    }
+
     #endregion
 
 
@@ -73,6 +82,13 @@ public class CORE : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        GameObject locationMap = GameObject.FindGameObjectWithTag("LocationMap");
+        if (locationMap == null)
+        {
+            return;
+        }
+
+        locationMap.GetComponent<LocationMap>().Initialize();
     }
 
     #endregion
