@@ -62,7 +62,7 @@ public class StructureProp : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void OnEnable()
     {
         SaveOriginalMaterials();
     }

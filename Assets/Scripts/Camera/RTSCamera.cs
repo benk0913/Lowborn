@@ -23,29 +23,29 @@ public class RTSCamera : MonoBehaviour
     {
         if(Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow) || (MouseScroll && Input.mousePosition.y > (Screen.height - 1f)))
         {
-            transform.position += transform.TransformDirection(0, 0, ScrollSpeed) * Time.deltaTime;
+            transform.position += transform.TransformDirection(0, 0, ScrollSpeed) * Time.unscaledDeltaTime;
         }
         else if (Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow) || (MouseScroll && Input.mousePosition.y < 1f))
         {
-            transform.position += transform.TransformDirection(0, 0, -ScrollSpeed) * Time.deltaTime;
+            transform.position += transform.TransformDirection(0, 0, -ScrollSpeed) * Time.unscaledDeltaTime;
         }
 
         if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow) || (MouseScroll && Input.mousePosition.x < 1f))
         {
-            transform.position += transform.TransformDirection(-ScrollSpeed, 0, 0) * Time.deltaTime;
+            transform.position += transform.TransformDirection(-ScrollSpeed, 0, 0) * Time.unscaledDeltaTime;
         }
         else if (Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow) || (MouseScroll && Input.mousePosition.x > Screen.width - 1f))
         {
-            transform.position += transform.TransformDirection(ScrollSpeed, 0, 0) * Time.deltaTime;
+            transform.position += transform.TransformDirection(ScrollSpeed, 0, 0) * Time.unscaledDeltaTime;
         }
 
         if(Input.GetAxis("Mouse ScrollWheel") > 0f && Camera.main.orthographicSize > maxZoom)
         {
-            Camera.main.orthographicSize -= ZoomSpeed * Time.deltaTime;
+            Camera.main.orthographicSize -= ZoomSpeed * Time.unscaledDeltaTime;
         }
         else if (Input.GetAxis("Mouse ScrollWheel") < 0f && Camera.main.orthographicSize < minZoom)
         {
-            Camera.main.orthographicSize += ZoomSpeed * Time.deltaTime;
+            Camera.main.orthographicSize += ZoomSpeed * Time.unscaledDeltaTime;
         }
 
         //if(Input.GetKeyDown(KeyCode.Tab))

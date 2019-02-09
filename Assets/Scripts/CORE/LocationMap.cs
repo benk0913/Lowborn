@@ -31,12 +31,14 @@ public class LocationMap : MonoBehaviour
                 case GameTool.Build:
                     {
                         BuildingTool.Instance.ActivateTool();
+                        PlayTool.Instance.ActivateTool();
 
                         break;
                     }
                 case GameTool.Play:
                     {
                         BuildingTool.Instance.DeactivateTool();
+                        PlayTool.Instance.DeactivateTool();
 
                         break;
                     }
@@ -132,6 +134,7 @@ public class LocationMap : MonoBehaviour
         }
 
         StartCoroutine(RefreshGameRoutine());
+
     }
 
     IEnumerator RefreshGameRoutine()
@@ -140,7 +143,7 @@ public class LocationMap : MonoBehaviour
         {
             RefreshMousePosition();
 
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSecondsRealtime(1f / Application.targetFrameRate);
 
             RefreshVisibleWalls();
         }
