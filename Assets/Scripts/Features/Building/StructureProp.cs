@@ -11,7 +11,7 @@ public class StructureProp : MonoBehaviour
     [System.NonSerialized]
     public List<Vector2> OccupiedSMAPs = new List<Vector2>();
 
-    List<Material> OriginalMaterials;
+    List<SubMat> OriginalMaterials;
 
     public int Floor;
 
@@ -102,13 +102,13 @@ public class StructureProp : MonoBehaviour
     {
         for(int i=0;i<OccupiedSMAPs.Count;i++)
         {
-            BuildingTool.Instance.RemoveOccupationFromSMAP(OccupiedSMAPs[i], this);
+            LocationMap.Instance.RemoveOccupationFromSMAP(OccupiedSMAPs[i], this);
         }
     }
 
     private void OccupySpot(float x, float z)
     {
-        if (!BuildingTool.Instance.AddOccupationToSMAP(new Vector2(x, z), this))
+        if (!LocationMap.Instance.AddOccupationToSMAP(new Vector2(x, z), this))
         {
             return;
         }
@@ -146,9 +146,9 @@ public class StructureProp : MonoBehaviour
 
     public void SetMaterial(Material material, bool ReplaceOriginalMaterial = false)
     {
-        foreach (MeshRenderer MeshObject in MeshRenderers)
+        for(int i=0;i<MeshRenderers.Length;i++)
         {
-            MeshRenderer renderer = MeshObject.GetComponent<MeshRenderer>();
+            MeshRenderer renderer = MeshRenderers[i];
             if (renderer.material == material)
             {
                 return;
@@ -164,11 +164,11 @@ public class StructureProp : MonoBehaviour
             }
             else
             {
-                List<Material> newMaterials = new List<Material>();
-                newMaterials.InsertRange(0, OriginalMaterials);
-                newMaterials.Insert(0, material);
+                List<Material> materials = new List<Material>();
+                materials.InsertRange(0, OriginalMaterials[i].Materials);
+                materials.Add(material);
 
-                renderer.materials = newMaterials.ToArray();
+                renderer.materials = materials.ToArray();
             }
         }
     }
@@ -177,14 +177,10 @@ public class StructureProp : MonoBehaviour
     {
         SaveOriginalMaterials();
 
-        MeshRenderer MeshObject = MeshRenderers[0];
-
-        if (MeshObject.GetComponent<MeshRenderer>().material == OriginalMaterials[0])
+        for (int i = 0; i < MeshRenderers.Length; i++)
         {
-            return;
+            MeshRenderers[i].materials = OriginalMaterials[i].Materials;
         }
-
-        MeshObject.GetComponent<MeshRenderer>().materials = OriginalMaterials.ToArray();
     }
 
     void SaveOriginalMaterials()
@@ -194,9 +190,23 @@ public class StructureProp : MonoBehaviour
             return;
         }
 
-        OriginalMaterials = new List<Material>();
+        OriginalMaterials = new List<SubMat>();
 
-        MeshRenderer MeshObject = MeshRenderers[0];
-        OriginalMaterials.InsertRange(0, MeshObject.GetComponent<MeshRenderer>().materials);
+        for (int i=0;i<MeshRenderers.Length;i++)
+        {
+            OriginalMaterials.Add(new SubMat(i, MeshRenderers[i].materials));
+        }
+    }
+
+    public class SubMat
+    {
+        public int Index;
+        public Material[] Materials;
+
+        public SubMat(int index, Material[] mat)
+        {
+            this.Index = index;
+            this.Materials = mat;
+        }
     }
 }

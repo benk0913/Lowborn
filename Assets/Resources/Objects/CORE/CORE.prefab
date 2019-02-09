@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 1074986383416709219}
   - component: {fileID: 1074986383416709218}
   - component: {fileID: 7976570879586921562}
+  - component: {fileID: 1074986383405590618}
+  - component: {fileID: 5498040656589054142}
   m_Layer: 0
   m_Name: CORE
   m_TagString: Untagged
@@ -114,8 +116,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   marker: {fileID: 3850219072016257149}
   CanBuildMaterial: {fileID: 2100000, guid: 111f922a38b2382429b761566bcad445, type: 2}
+  CanBuildSurfaceTag: BuildableSurface
   CannotBuildMaterial: {fileID: 2100000, guid: c3b089ed42bf33b498ee9a364e9f8877, type: 2}
+  CannotBuildSurfaceTag: NonbuildableSurface
   SelectedMaterial: {fileID: 2100000, guid: 5b67eef265df8a44486e313424271b02, type: 2}
+--- !u!114 &1074986383405590618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074986383416709216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4d891e651b537a48a1d0478f5eeec7e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5498040656589054142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1074986383416709216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a76c0fcbe01258b4bb8e17196653b790, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isToolActive: 0
 --- !u!1 &1074986383434602824
 GameObject:
   m_ObjectHideFlags: 0

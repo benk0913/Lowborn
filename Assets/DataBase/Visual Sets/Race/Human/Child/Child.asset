@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Age: 1
   Male: {fileID: 11400000, guid: ed6e90aa0e590c8448eca7a8ee093f54, type: 2}
-  Female: {fileID: 0}
+  Female: {fileID: 11400000, guid: c6011c394a480e14e9907efaf00b69c6, type: 2}

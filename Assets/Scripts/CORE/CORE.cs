@@ -18,6 +18,13 @@ public class CORE : MonoBehaviour
     public GameDB Database;
 
     public Session CurrentScenario;
+    public Character PlayerCharacter
+    {
+        get
+        {
+            return CurrentScenario.PlayerDynasty.HeadOfHouse;
+        }
+    }
 
     #endregion
 

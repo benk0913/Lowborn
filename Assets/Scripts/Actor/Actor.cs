@@ -45,9 +45,11 @@ public class Actor : MonoBehaviour
         CurrentCharacter = character;
 
         character.VisualChanged.AddListener(RefreshVisuals);
+
+        RefreshVisuals();
     }
 
-    void NavigateTo(Vector3 targetPosition)
+    public void NavigateTo(Vector3 targetPosition)
     {
         NavAgent.SetDestination(targetPosition);
     }
@@ -65,9 +67,13 @@ public class Actor : MonoBehaviour
             return;
         }
 
-        if (CurrentCharacter.VisualSet.BodyModel.name != Body.gameObject.name)
+        if (    Body == null 
+            || (Body != null && CurrentCharacter.VisualSet.BodyModel.name != Body.gameObject.name))
         {
-            Destroy(Body.gameObject);
+            if (Body != null)
+            {
+                Destroy(Body.gameObject);
+            }
 
             Body = Instantiate(CurrentCharacter.VisualSet.BodyModel).GetComponent<ActorBody>();
             Body.transform.SetParent(BodyContainer);

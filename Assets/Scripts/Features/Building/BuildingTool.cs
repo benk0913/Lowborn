@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using System.Linq;
+using UnityEngine.AI;
 
 public class BuildingTool : MonoBehaviour
 {
@@ -15,10 +16,19 @@ public class BuildingTool : MonoBehaviour
     Material CanBuildMaterial;
 
     [SerializeField]
+    string CanBuildSurfaceTag;
+
+    [SerializeField]
     Material CannotBuildMaterial;
 
     [SerializeField]
+    string CannotBuildSurfaceTag;
+
+
+    [SerializeField]
     Material SelectedMaterial;
+
+
 
     bool isToolActive;
 
@@ -50,9 +60,6 @@ public class BuildingTool : MonoBehaviour
     int currentFloor;
 
     bool canBuild;
-
-    //This map is used to store already built structures in order to see if the current state is buildable.
-    Dictionary<Vector2, List<StructureProp>> SMAP = new Dictionary<Vector2, List<StructureProp>>();
 
     Vector3 PreviousSelectedTile;
 
@@ -105,11 +112,12 @@ public class BuildingTool : MonoBehaviour
                 marker.gameObject.SetActive(true);
             }
 
-            marker.transform.position =
+            marker.transform.position = LocationMap.Instance.GetNearestSnapPosition(
                 new Vector3(
-                    LocationMap.Instance.GetNearestSnapUnit(LocationMap.Instance.GroundMouseHit.point.x),
-                    LocationMap.Instance.GetNearestSnapUnit(LocationMap.Instance.GroundMouseHit.point.y + ((CurrentFloor*2) * LocationMap.Instance.SnapUnit)),
-                    LocationMap.Instance.GetNearestSnapUnit(LocationMap.Instance.GroundMouseHit.point.z));
+                    LocationMap.Instance.GroundMouseHit.point.x,
+                    LocationMap.Instance.GroundMouseHit.point.y + ((CurrentFloor * 2) * LocationMap.Instance.SnapUnit),
+                    LocationMap.Instance.GroundMouseHit.point.z));
+               
         }
         else
         {
@@ -266,6 +274,9 @@ public class BuildingTool : MonoBehaviour
         prop.OccupySMAP();
 
         RefreshBlueprintState();
+
+        //LocationMap.Instance.GetComponent<NavMeshSurface>().RemoveData();
+        LocationMap.Instance.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
     void RefreshBlueprintState()
@@ -277,7 +288,8 @@ public class BuildingTool : MonoBehaviour
 
         StructureProp structure = BlueprintItem.GetComponent<StructureProp>();
 
-        if (CanBuild(new Vector2(BlueprintItem.transform.position.x, BlueprintItem.transform.position.z), structure))
+        if (   LocationMap.Instance.GroundMouseHit.collider.tag != CannotBuildSurfaceTag
+            && CanBuild(new Vector2(BlueprintItem.transform.position.x, BlueprintItem.transform.position.z), structure))
         {
             structure.SetMaterial(CanBuildMaterial);
             canBuild = true;
@@ -287,25 +299,6 @@ public class BuildingTool : MonoBehaviour
             structure.SetMaterial(CannotBuildMaterial);
             canBuild = false;
         }
-    }
-
-    bool canOccupySpot(Vector2 point, StructureProp structure)
-    {
-        if(!SMAP.ContainsKey(point) || SMAP[point].Count == 0)
-        {
-            return true;
-        }
-
-        for(int i=0;i<SMAP[point].Count;i++)
-        {
-            if(SMAP[point][i].Data.Type == structure.Data.Type 
-                && SMAP[point][i].Floor == CurrentFloor)
-            {
-                return false;
-            }
-        }
-
-        return true;
     }
 
     #endregion
@@ -334,36 +327,15 @@ public class BuildingTool : MonoBehaviour
         marker.gameObject.SetActive(false);
     }
 
-    public bool AddOccupationToSMAP(Vector2 point, StructureProp structure)
-    {
-        if(!SMAP.ContainsKey(point))
-        {
-            SMAP.Add(point, new List<StructureProp>());
-        }
-
-        if(SMAP[point].Contains(structure))
-        {
-            return false;
-        }
-
-        SMAP[point].Add(structure);
-        return true;
-    }
-
-    public void RemoveOccupationFromSMAP(Vector2 point, StructureProp structure)
-    {
-        SMAP[point].Remove(structure);
-    }
-
     public List<StructureProp> GetStructuresInFloor(int floor)
     {
         List<StructureProp> props = new List<StructureProp>();
 
-        for(int a=0;a<SMAP.Keys.Count;a++)
+        for(int a=0;a< LocationMap.Instance.SMAP.Keys.Count;a++)
         {
-            for(int b=0; b < SMAP[SMAP.Keys.ElementAt(a)].Count;b++)
+            for(int b=0; b < LocationMap.Instance.SMAP[LocationMap.Instance.SMAP.Keys.ElementAt(a)].Count;b++)
             {
-                StructureProp prop = SMAP[SMAP.Keys.ElementAt(a)][b];
+                StructureProp prop = LocationMap.Instance.SMAP[LocationMap.Instance.SMAP.Keys.ElementAt(a)][b];
 
                 if (prop.Floor == floor)
                 {
@@ -377,29 +349,29 @@ public class BuildingTool : MonoBehaviour
 
     public bool CanBuild(Vector2 smapPos, StructureProp prop)
     {
-        if(!canOccupySpot(new Vector2(smapPos.x, smapPos.y), prop))
+        if(!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x, smapPos.y), prop, CurrentFloor))
         {
             return false;
         }
 
         for (int x = 1; x < prop.SizeX + 1; x++)
         {
-            if (!canOccupySpot(new Vector2(smapPos.x + x, smapPos.y), prop))
+            if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x + x, smapPos.y), prop, CurrentFloor))
             {
                 return false;
             }
-            if (!canOccupySpot(new Vector2(smapPos.x - x, smapPos.y), prop))
+            if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x - x, smapPos.y), prop, CurrentFloor))
             {
                 return false;
             }
 
             for (int z = 1; z < prop.SizeZ + 1; z++)
             {
-                if (!canOccupySpot(new Vector2(smapPos.x + x, smapPos.y + z), prop))
+                if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x + x, smapPos.y + z), prop, CurrentFloor))
                 {
                     return false;
                 }
-                if (!canOccupySpot(new Vector2(smapPos.x - x, smapPos.y - z), prop))
+                if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x - x, smapPos.y - z), prop, CurrentFloor))
                 {
                     return false;
                 }
@@ -408,22 +380,22 @@ public class BuildingTool : MonoBehaviour
 
         for (int z = 1; z < prop.SizeZ + 1; z++)
         {
-            if (!canOccupySpot(new Vector2(smapPos.x, smapPos.y + z), prop))
+            if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x, smapPos.y + z), prop, CurrentFloor))
             {
                 return false;
             }
-            if (!canOccupySpot(new Vector2(smapPos.x, smapPos.y - z), prop))
+            if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x, smapPos.y - z), prop, CurrentFloor))
             {
                 return false;
             }
 
             for (int x = 1; x < prop.SizeX+1; x++)
             {
-                if (!canOccupySpot(new Vector2(smapPos.x + x, smapPos.y + z), prop))
+                if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x + x, smapPos.y + z), prop, CurrentFloor))
                 {
                     return false;
                 }
-                if (!canOccupySpot(new Vector2(smapPos.x - x, smapPos.y - z), prop))
+                if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x - x, smapPos.y - z), prop, CurrentFloor))
                 {
                     return false;
                 }
@@ -451,8 +423,15 @@ public class BuildingTool : MonoBehaviour
 
     public void RemoveSelectedStructure(StructureProp structure)
     {
-        structure.RemoveOccupation();
-        Destroy(structure.gameObject);
+        if (structure.Data.IsBuildable)
+        {
+            structure.RemoveOccupation();
+            Destroy(structure.gameObject);
+        }
+        else
+        {
+            //TODO CAN'T REMOVE THIS! (EFFECt)
+        }
 
         ClearSelection();
     }

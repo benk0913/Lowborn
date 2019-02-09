@@ -17,6 +17,10 @@ public class LocationMap : MonoBehaviour
 
     public static LocationMap Instance;
 
+    [SerializeField]
+    public LocationData Data;
+
+
     public GameTool CurrentGameTool
     {
         set
@@ -115,9 +119,17 @@ public class LocationMap : MonoBehaviour
     }
 
 
-    public void Initialize()
+    public void Initialize(LocationData data = null)
     {
         CurrentGameTool = GameTool.Play;
+
+        Data.PlayerActor = SpawnActor(CORE.Instance.PlayerCharacter);
+        Data.PlayerActor.transform.position = Data.SpawnPoints[0].position;
+
+        foreach (StructureProp prop in Data.PresetStructures)
+        {
+            prop.OccupySMAP();
+        }
 
         StartCoroutine(RefreshGameRoutine());
     }
@@ -239,12 +251,74 @@ public class LocationMap : MonoBehaviour
         return (float)Math.Round(integer / SnapUnit) * SnapUnit;
     }
 
+    public Vector3 GetNearestSnapPosition(Vector3 pos, bool includeY = false)
+    {
+        return new Vector3(
+                    GetNearestSnapUnit(pos.x),
+                    includeY? GetNearestSnapUnit(pos.y) : pos.y,
+                    GetNearestSnapUnit(pos.z));
+    }
+
     public void SetIsMouseOnUI(bool state)
     {
         IsMouseOnUI = state;
     }
 
+    public Actor SpawnActor(Character character)
+    {
+        Actor temp = Instantiate(ResourcesLoader.Instance.GetObject("Actor")).GetComponent<Actor>();
+        temp.SetCharacter(character);
 
+        return temp;
+    }
+
+    #region SMAP
+
+
+    //This map is used to store already built structures in order to see if the current state is buildable.
+    public Dictionary<Vector2, List<StructureProp>> SMAP = new Dictionary<Vector2, List<StructureProp>>();
+
+    public bool AddOccupationToSMAP(Vector2 point, StructureProp structure)
+    {
+        if (!SMAP.ContainsKey(point))
+        {
+            SMAP.Add(point, new List<StructureProp>());
+        }
+
+        if (SMAP[point].Contains(structure))
+        {
+            return false;
+        }
+
+        SMAP[point].Add(structure);
+        return true;
+    }
+
+    public void RemoveOccupationFromSMAP(Vector2 point, StructureProp structure)
+    {
+        SMAP[point].Remove(structure);
+    }
+
+
+    public bool isSpotOccupiable(Vector2 point, StructureProp structure, int inFloor)
+    {
+        if (!SMAP.ContainsKey(point) || SMAP[point].Count == 0)
+        {
+            return true;
+        }
+
+        for (int i = 0; i < SMAP[point].Count; i++)
+        {
+            if (SMAP[point][i].Data.Type == structure.Data.Type
+                && SMAP[point][i].Floor == inFloor)
+            {
+                return false;
+            }
+        }
+
+        return true;
+    }
+    #endregion
 }
 
 public enum ViewMode

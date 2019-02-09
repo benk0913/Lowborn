@@ -21,10 +21,11 @@ public class GamePanelUI : MonoBehaviour
     [SerializeField]
     Button BuildToolButton;
 
+    //TODO Might be a good idea to move these panels to CORE object.
     [SerializeField]
-    GameObject BuildTool;
+    GameObject BuildToolPanel;
     [SerializeField]
-    GameObject PlayTool;
+    GameObject PlayToolPanel;
 
     public static GamePanelUI Instance;
 
@@ -91,20 +92,26 @@ public class GamePanelUI : MonoBehaviour
         {
             case GameTool.Build:
                 {
-                    BuildTool.gameObject.SetActive(true);
-                    PlayTool.gameObject.SetActive(false);
+                    BuildToolPanel.gameObject.SetActive(true);
+                    PlayToolPanel.gameObject.SetActive(false);
 
                     PlayToolButton.gameObject.SetActive(true);
                     BuildToolButton.gameObject.SetActive(false);
+
+                    BuildingTool.Instance.ActivateTool();
+                    PlayTool.Instance.DeactivateTool();
                     break;
                 }
             case GameTool.Play:
                 {
-                    BuildTool.gameObject.SetActive(false);
-                    PlayTool.gameObject.SetActive(true);
+                    BuildToolPanel.gameObject.SetActive(false);
+                    PlayToolPanel.gameObject.SetActive(true);
 
                     PlayToolButton.gameObject.SetActive(false);
                     BuildToolButton.gameObject.SetActive(true);
+
+                    BuildingTool.Instance.DeactivateTool();
+                    PlayTool.Instance.ActivateTool();
                     break;
                 }
         }

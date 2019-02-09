@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: ChildMale
   m_EditorClassIdentifier: 
   Gender: 0
-  BodyModel: {fileID: 1665018990339457731, guid: 5cd492d9c4879da4db5d6a2851ada582,
+  BodyModel: {fileID: 4461856116389925669, guid: 7e9a53ac7b7d7b5439242655a88d7959,
     type: 3}
   SkinColors: {fileID: 11400000, guid: 9da5a010c47b756458f569404b25b344, type: 2}
   HairColor: {fileID: 11400000, guid: 03f89a1e0650d6c40b94bf2d9bdd4fbd, type: 2}
