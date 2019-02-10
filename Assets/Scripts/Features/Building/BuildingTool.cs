@@ -38,7 +38,7 @@ public class BuildingTool : MonoBehaviour
 
     public static BuildingTool Instance;
 
-    string BlueprintKey;
+    Prop BlueprintProp;
     GameObject BlueprintItem;
 
     StructureProp SelectedItem;
@@ -235,7 +235,7 @@ public class BuildingTool : MonoBehaviour
     {
         Destroy(BlueprintItem);
         BlueprintItem = null;
-        BlueprintKey = "";
+        BlueprintProp = null;
 
         State = ToolState.Normal;
     }
@@ -259,12 +259,16 @@ public class BuildingTool : MonoBehaviour
             return;
         }
 
-        GameObject obj = Instantiate(ResourcesLoader.Instance.GetObject(BlueprintKey));
+        GameObject obj = Instantiate(BlueprintProp.Prefab);
 
         obj.transform.position = BlueprintItem.transform.position;
         obj.transform.rotation = BlueprintItem.transform.rotation;
 
         GameObject blueprintMesh = BlueprintItem.GetComponent<BlueprintObject>().MeshObject;
+
+        //A small cheat to initialize the collider in timescale 0
+        obj.GetComponent<Collider>().enabled = false;
+        obj.GetComponent<Collider>().enabled = true;
 
         ResourcesLoader.Instance.GetRecycledObject("MeshParticles").GetComponent<MeshParticles>()
             .SetTarget(blueprintMesh.GetComponent<MeshFilter>());
@@ -300,7 +304,7 @@ public class BuildingTool : MonoBehaviour
             canBuild = false;
         }
     }
-
+    
     #endregion
 
     #region Public Methods
@@ -406,7 +410,7 @@ public class BuildingTool : MonoBehaviour
     }
 
 
-    public void SetBlueprintItem(string itemKey)
+    public void SetBlueprintItem(Prop propData)
     {
         if (State == ToolState.Building)
         {
@@ -415,8 +419,8 @@ public class BuildingTool : MonoBehaviour
 
         State = ToolState.Building;
 
-        BlueprintKey = itemKey;
-        BlueprintItem = Instantiate(ResourcesLoader.Instance.GetObject(itemKey));
+        BlueprintProp = propData;
+        BlueprintItem = Instantiate(propData.Prefab);
 
         RefreshBlueprintState();
     }

@@ -4,13 +4,26 @@ using UnityEngine;
 
 public class BuildToolUI : MonoBehaviour
 {
-    private void OnEnable()
+    [SerializeField]
+    Transform IconsContainer;
+
+    private void Start()
     {
-        BuildingTool.Instance.ActivateTool();
+        Initialize();    
     }
 
-    private void OnDisable()
+    private void Initialize()
     {
-        BuildingTool.Instance.DeactivateTool();
+        GameObject tempItem;
+        for(int i=0;i< CORE.Instance.Database.Buildable.Count;i++)
+        {
+            tempItem = ResourcesLoader.Instance.GetRecycledObject("buildingItem");
+
+            tempItem.transform.SetParent(IconsContainer, false);
+
+            tempItem.GetComponent<SelectableBuildItemUI>().SetInfo(CORE.Instance.Database.Buildable[i]);
+        }
     }
+
+
 }
