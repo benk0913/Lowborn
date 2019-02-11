@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Description: Doorway Wall A
-  Icon: {fileID: 21300000, guid: c3927f61809143e47b63091bd31b58e0, type: 3}
+  Icon: {fileID: 0}
   Price:
     Silver: 5
   Prefab: {fileID: 100000, guid: cf2ac595c5b4cae4cb6c3f0c4039c44e, type: 3}
+  Buildable: 1
