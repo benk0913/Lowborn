@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Description: Exterior Window Wall B
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: a7e4f2d03d9ddfc46aa02f98313c7064, type: 3}
   Price:
     Silver: 5
   Prefab: {fileID: 100000, guid: 9675bb49466d3be4d8b8bcf7ae3b983b, type: 3}

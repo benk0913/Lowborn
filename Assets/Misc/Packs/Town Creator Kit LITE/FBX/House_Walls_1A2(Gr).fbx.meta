@@ -3,7 +3,7 @@ guid: b16845a6a7e6b784cbf7f76cba790e2c
 timeCreated: 1448933089
 licenseType: Store
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 18
   fileIDToRecycleName:
     100000: Cube_000
     100002: Cube_001
@@ -72,19 +72,6 @@ ModelImporter:
     4300020: Cube_005
     4300022: Cube_023
     4300024: Cube_015
-    6400000: Cube_000
-    6400002: Cube_001
-    6400004: Cube_002
-    6400006: Cube_003
-    6400008: Cube_005
-    6400010: Cube_006
-    6400012: Cube_007
-    6400014: Cube_015
-    6400016: Cube_023
-    6400018: Cube_042
-    6400020: Cube_045
-    6400022: Cube_050
-    6400024: Cube_054
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -94,7 +81,6 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleRotations: 1
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
@@ -102,9 +88,9 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 1
-    animationRotationError: 0.5
-    animationPositionError: 0.5
-    animationScaleError: 0.5
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations: []
@@ -113,7 +99,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 1
+    addColliders: 0
     importBlendShapes: 1
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -128,19 +114,20 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 4
+    tangentImportMode: 1
   importAnimation: 1
   copyAvatar: 0
   humanDescription:
     human: []
     skeleton: []
-    armTwist: 0.5
-    foreArmTwist: 0.5
-    upperLegTwist: 0.5
-    legTwist: 0.5
-    armStretch: 0.05
-    legStretch: 0.05
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
     feetSpacing: 0
     rootMotionBoneName: 
     hasTranslationDoF: 0

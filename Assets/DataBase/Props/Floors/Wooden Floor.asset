@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 1
   Description: Cheap Wooden Floor
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 560ce3c81e9d8974f92e8127cc8a675f, type: 3}
   Price:
     Silver: 5
   Prefab: {fileID: 100000, guid: 33cbede02ef57ba48b6d8778515473ad, type: 3}

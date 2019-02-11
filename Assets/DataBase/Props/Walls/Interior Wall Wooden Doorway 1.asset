@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Description: Interior Wooden Doorway Wall
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: b78e7fe3fee466f4681570384c951b9e, type: 3}
   Price:
     Silver: 5
   Prefab: {fileID: 100000, guid: fa79309885b3446418dde5692d9beb7a, type: 3}

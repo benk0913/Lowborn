@@ -17,5 +17,7 @@ public enum PropType
 {
     Wall,
     Floor,
-    Decoration
+    Decoration,
+    Furniture,
+    Carpet
 }

@@ -11,22 +11,24 @@ namespace J4F{
 		private ReorderableList list;
 
 		void OnEnable () {
-			list = new ReorderableList(serializedObject, 
-			                           serializedObject.FindProperty("prefabsQueue"),
-			                           true, false, true, true);
-			list.drawHeaderCallback = (Rect rect) => {  
-				EditorGUI.LabelField(rect, "Prefabs to iconify");
-			};
-			list.drawElementCallback =  
-			(Rect rect, int index, bool isActive, bool isFocused) => {
-				var element = list.serializedProperty.GetArrayElementAtIndex(index);
-				rect.y += 2;
-				EditorGUI.PropertyField(
-					new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
-					element, GUIContent.none);
+            list = new ReorderableList(serializedObject,
+                                       serializedObject.FindProperty("prefabsQueue"),
+                                       true, false, true, true);
+            list.drawHeaderCallback = (Rect rect) =>
+            {
+                EditorGUI.LabelField(rect, "Prefabs to iconify");
+            };
+            list.drawElementCallback =
+            (Rect rect, int index, bool isActive, bool isFocused) =>
+            {
+                var element = list.serializedProperty.GetArrayElementAtIndex(index);
+                rect.y += 2;
+                EditorGUI.PropertyField(
+                    new Rect(rect.x, rect.y, rect.width, EditorGUIUtility.singleLineHeight),
+                    element, GUIContent.none);
 
-			};
-		}
+            };
+        }
 		
 		public override void OnInspectorGUI()
 		{
@@ -56,16 +58,17 @@ namespace J4F{
 			GUILayout.Label("Icons will be saved as "+myScript.prefix+"[prefabname]"+myScript.suffix+".png", EditorStyles.helpBox);
 			EditorGUILayout.Separator ();
 
-			EditorGUILayout.PropertyField (serializedObject.FindProperty("iconOutputFolder"), new GUIContent("Output folder"));
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("iconInputFolder"), new GUIContent("Input folder"));
+
+            EditorGUILayout.PropertyField (serializedObject.FindProperty("iconOutputFolder"), new GUIContent("Output folder"));
 			GUILayout.Label("Let this field empty to save icons near prefabs", EditorStyles.helpBox);
 			EditorGUILayout.Separator ();
 			list.DoLayoutList();
 			EditorGUILayout.Separator ();
 
 
-
-			// Buttons !
-			GUI.color = myScript.useUI ? new Color(0.9f,0.9f,0.9f): new Color(0.6f,0.6f,0.6f);
+            // Buttons !
+            GUI.color = myScript.useUI ? new Color(0.9f,0.9f,0.9f): new Color(0.6f,0.6f,0.6f);
 			if(GUILayout.Button("Use UI" + (myScript.useUI ? " (ON)" : " (OFF)")))
 			{
 				myScript.SwitchUI();

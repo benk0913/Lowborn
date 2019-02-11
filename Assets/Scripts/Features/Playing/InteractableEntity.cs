@@ -41,7 +41,12 @@ public class InteractableEntity : MonoBehaviour
 
     private void Start()
     {
-        for(int i=0;i<PossibleInteractions.Count;i++)
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+        for (int i = 0; i < PossibleInteractions.Count; i++)
         {
             PossibleInteractions[i]._Interaction.OnComplete.AddListener(PossibleInteractions[i].OnInteractionComplete.Invoke);
         }

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Description: Interior Wooden Wall
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 4b74c2546efdfc5479ce530ccc84cc8c, type: 3}
   Price:
     Silver: 5
   Prefab: {fileID: 100000, guid: a955779d368c8f645a6c043fe5e73fdd, type: 3}

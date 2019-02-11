@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Description: A small cheap roof
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: c89e23a87ba5b4e458c248593a4789a5, type: 3}
   Price:
     Silver: 10
   Prefab: {fileID: 100000, guid: c9170cc039623ef40ab91607616f53df, type: 3}

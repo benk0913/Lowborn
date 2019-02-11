@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
 using UnityEditor;
-using System;
+using System.Linq;
 
 namespace J4F{
 	[ExecuteInEditMode]
@@ -18,11 +18,13 @@ namespace J4F{
 		public List<GameObject> prefabsQueue;
 		public List<GameObject> completeQueue;
 		public string iconOutputFolder = "";
-		public bool useUI = true;
+        public string iconInputFolder = "";
+        public bool useUI = true;
 		public bool generateItems = false;
 		public bool stepByStep = false;
 		public bool doStep = false;
 		public string errorStack = "";
+        
 
 		Camera generationCam;
 		GameObject currentGameObject;
@@ -35,7 +37,25 @@ namespace J4F{
 		/// </summary>
 		public void StartGeneration(){
 
-			errorStack = "";
+            if (!string.IsNullOrEmpty(iconInputFolder))
+            {
+                prefabsQueue.Clear();
+
+                prefabsQueue.AddRange(CustomAssetLoader.LoadAllPrefabs(iconInputFolder));
+
+                List<Prop> props = CustomAssetLoader.LoadAllProps("Assets/DataBase/Props/");
+
+                foreach(Prop prop in props)
+                {
+                    if(prop.Prefab != null && prop.Icon == null)
+                    {
+                        prop.Icon = CustomAssetLoader.LoadIcon("Assets/DataBase/Props/Icons", prop.Prefab.name);
+                        EditorUtility.SetDirty(prop);
+                    }
+                }
+            }
+
+            errorStack = "";
 			if(currentGameObject != null) DestroyImmediate(currentGameObject.gameObject);
 			// Prepare the complete queue :
 			completeQueue = new List<GameObject>();
@@ -266,7 +286,7 @@ namespace J4F{
 		void OnEnable () {
 			generateItems = false;
 		}
-	}
+    }
 
 
 
