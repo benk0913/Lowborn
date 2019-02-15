@@ -127,6 +127,7 @@ public class LocationMap : MonoBehaviour
 
         Data.PlayerActor = SpawnActor(CORE.Instance.PlayerCharacter);
         Data.PlayerActor.transform.position = Data.SpawnPoints[0].position;
+        Data.PlayerActor.SetPlayableCharacter();
 
         foreach (StructureProp prop in Data.PresetStructures)
         {

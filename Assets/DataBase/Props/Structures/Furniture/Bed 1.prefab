@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 918149267652956699}
   - component: {fileID: 2225071813697539523}
   m_Layer: 10
-  m_Name: Bed
+  m_Name: Bed 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -84,8 +84,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.3752575, y: 0.9411378, z: 2.1802902}
-  m_Center: {x: -0.53493786, y: 0.5426862, z: 1.1646919}
+  m_Size: {x: 3.342659, y: 0.9411378, z: 1.9776459}
+  m_Center: {x: -0.075634, y: 0.5426862, z: 0.58231354}
 --- !u!208 &918149267652956699
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -96,11 +96,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6876285, y: 0.545, z: 1.090145}
+  m_Extents: {x: 1.6713295, y: 0.4705689, z: 0.988823}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.5349379, y: 0.45, z: 1.164692}
+  m_Center: {x: -0.075634, y: 0.5426862, z: 0.5823135}
   m_TimeToStationary: 0.5
 --- !u!114 &2225071813697539523
 MonoBehaviour:
@@ -117,6 +117,18 @@ MonoBehaviour:
   InteractionPoints:
   - {fileID: 8207808284408061625}
   PossibleInteractions:
+  - _Interaction: {fileID: 11400000, guid: 6672ad997ea8aca4196284e823bd3459, type: 2}
+    OnInteractionComplete:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - _Interaction: {fileID: 11400000, guid: dae258eddb0c7744b8dad03bd9af6f5e, type: 2}
+    OnInteractionComplete:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
   - _Interaction: {fileID: 11400000, guid: e395a8f7274ddec44a41436764adb0da, type: 2}
     OnInteractionComplete:
       m_PersistentCalls:
@@ -166,7 +178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 407136, guid: 1ac21a55620dfda48a9771581e89a1af, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.59000015
+      value: -0.077
       objectReference: {fileID: 0}
     - target: {fileID: 407136, guid: 1ac21a55620dfda48a9771581e89a1af, type: 3}
       propertyPath: m_LocalPosition.y
@@ -174,7 +186,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 407136, guid: 1ac21a55620dfda48a9771581e89a1af, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.1800003
+      value: 0.532
       objectReference: {fileID: 0}
     - target: {fileID: 407136, guid: 1ac21a55620dfda48a9771581e89a1af, type: 3}
       propertyPath: m_LocalRotation.x

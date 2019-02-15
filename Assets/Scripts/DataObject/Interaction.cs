@@ -10,10 +10,17 @@ public class Interaction : ScriptableObject
     public string Description;
 
     [SerializeField]
-    public string InteractionAnimationTrigger;
+    public int InteractionAnimationNumber;
 
     [SerializeField]
     public float Duration;
+
+    [SerializeField]
+    public bool ShowProgressBar = true;
+
+    [SerializeField]
+    public bool Repeat = true;
+
 
     public UnityEvent OnComplete;
 

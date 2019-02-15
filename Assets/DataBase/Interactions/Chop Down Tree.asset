@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Chop Down Tree
   m_EditorClassIdentifier: 
   Description: Chop this tree down to harvest it's lumber.
-  InteractionAnimationTrigger: 
+  InteractionAnimationNumber: 1
   Duration: 6
   OnComplete:
     m_PersistentCalls:

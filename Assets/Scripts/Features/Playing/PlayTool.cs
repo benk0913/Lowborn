@@ -26,16 +26,27 @@ public class PlayTool : MonoBehaviour
         {
             return;
         }
-
+        
         if(Input.GetMouseButtonDown(1))
         {
-            if (LocationMap.Instance.StructureMouseHit.collider != null)
+            if (LocationMap.Instance.IsMouseOnStructure
+                && LocationMap.Instance.StructureMouseHit.collider.GetComponent<InteractableEntity>() != null)
             {
-                LocationMap.Instance.Data.PlayerActor.NavigateTo(LocationMap.Instance.GroundMouseHit.point);
+                InteractableEntity entity = LocationMap.Instance.StructureMouseHit.collider.GetComponent<InteractableEntity>();
+                PlayModeUI.Instance.ShowInteractionOptions(entity);
             }
-            else if (LocationMap.Instance.GroundMouseHit.collider != null)
+            else
             {
-                LocationMap.Instance.Data.PlayerActor.NavigateTo(LocationMap.Instance.GroundMouseHit.point);
+                if (LocationMap.Instance.StructureMouseHit.collider != null)
+                {
+                    LocationMap.Instance.Data.PlayerActor.WalkTo(LocationMap.Instance.GroundMouseHit.point);
+                }
+                else if (LocationMap.Instance.GroundMouseHit.collider != null)
+                {
+                    LocationMap.Instance.Data.PlayerActor.WalkTo(LocationMap.Instance.GroundMouseHit.point);
+                }
+
+                PlayModeUI.Instance.ClearInteractionOptions();
             }
         }
     }
@@ -63,6 +74,14 @@ public class PlayTool : MonoBehaviour
         isToolActive = false;
 
         PauseTime();
+    }
+
+
+    public void SelectInteraction(InteractableEntity entity ,Interaction currentInteraction)
+    {
+        PlayModeUI.Instance.ClearInteractionOptions();
+
+        LocationMap.Instance.Data.PlayerActor.Interact(entity ,currentInteraction);
     }
 
     #region Time;

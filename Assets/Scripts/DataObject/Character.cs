@@ -156,6 +156,8 @@ public class Character : ScriptableObject
 
 
 
+    public List<NeedBar> Needs = new List<NeedBar>();
+
     public Character()
     {
         this.ID = Util.GenerateUniqueID();
@@ -163,7 +165,7 @@ public class Character : ScriptableObject
 
     private void OnEnable()
     {
-        InitializeLooks();
+        Initialize();
     }
 
     public void Randomize()
@@ -207,7 +209,7 @@ public class Character : ScriptableObject
         VisualChanged.Invoke();
     }
 
-    void InitializeLooks()
+    void Initialize()
     {
         //TODO Get rid of this when we have enough data.
         RaceSet raceSet = CORE.Instance.Database.GetRace("Human");
@@ -240,5 +242,31 @@ public class Character : ScriptableObject
         Clothing = VisualSet.Clothing.Pool[0];
 
         RefreshVisualTree();
+    }
+
+    public class NeedBar
+    {
+        public Need Identity;
+        public float CurrentPrecent = 1f;
+
+        public NeedBar(Need identity)
+        {
+            this.Identity = identity;
+        }
+
+        public void Deteriorate()
+        {
+            if(CurrentPrecent <= 0f)
+            {
+                return;
+            }
+
+            CurrentPrecent -= Identity.BaseDecrease;
+
+            if (CurrentPrecent <= 0f)
+            {
+                //REACHED 0 EFFECT!
+            }
+        }
     }
 }

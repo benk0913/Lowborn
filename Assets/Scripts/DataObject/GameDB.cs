@@ -11,6 +11,8 @@ public class GameDB : ScriptableObject
 
     public List<Prop> Buildable = new List<Prop>();
 
+    public List<Need> BaseNeeds = new List<Need>();
+
     public RaceSet GetRace(string raceName, bool fallback = true)
     {
         for(int i=0;i<Races.Count;i++)

@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RTSCamera : MonoBehaviour
 {
+
+    public static RTSCamera Instance;
+
     [SerializeField]
     float ScrollSpeed = 1f;
 
@@ -18,6 +21,11 @@ public class RTSCamera : MonoBehaviour
 
     [SerializeField]
     bool MouseScroll = true;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     private void Update()
     {
