@@ -1,10 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
 public class StructureProp : MonoBehaviour
 {
+    //TODO Replace Data with a reference to a prop scriptable obj & move data params to there.
     [SerializeField]
     public StructureData Data;
 
@@ -12,6 +14,8 @@ public class StructureProp : MonoBehaviour
     public List<Vector2> OccupiedSMAPs = new List<Vector2>();
 
     List<SubMat> OriginalMaterials;
+
+    public Dynasty Owner;
 
     public int Floor;
 
@@ -65,6 +69,13 @@ public class StructureProp : MonoBehaviour
     private void OnEnable()
     {
         SaveOriginalMaterials();
+    }
+    
+    public void Initialize(int currentFloor, Dynasty owner)
+    {
+        this.Owner = owner;
+        this.Floor = currentFloor;
+        this.OccupySMAP();
     }
 
     public void OccupySMAP()

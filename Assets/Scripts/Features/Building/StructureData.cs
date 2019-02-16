@@ -17,4 +17,5 @@ public class StructureData
 
     [SerializeField]
     public bool IsBuildable = true;
+    
 }

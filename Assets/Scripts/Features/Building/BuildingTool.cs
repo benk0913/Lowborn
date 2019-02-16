@@ -274,8 +274,7 @@ public class BuildingTool : MonoBehaviour
             .SetTarget(blueprintMesh.GetComponent<MeshFilter>());
 
         StructureProp prop = obj.GetComponent<StructureProp>();
-        prop.Floor = CurrentFloor;
-        prop.OccupySMAP();
+        prop.Initialize(CurrentFloor, CORE.Instance.CurrentScenario.PlayerDynasty);
 
         RefreshBlueprintState();
 

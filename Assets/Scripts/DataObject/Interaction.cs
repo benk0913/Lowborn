@@ -24,6 +24,9 @@ public class Interaction : ScriptableObject
 
     public UnityEvent OnComplete;
 
+    [SerializeField]
+    public List<GameEvent> OnCompleteEvenets = new List<GameEvent>();
+
 
 
 }

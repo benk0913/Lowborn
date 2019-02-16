@@ -125,9 +125,13 @@ public class LocationMap : MonoBehaviour
     {
         CurrentGameTool = GameTool.Play;
 
+        //TODO - THIS IS A DEBUG AREA / SPAWN SHOULD BE DONE DIFFERENTLY.
         Data.PlayerActor = SpawnActor(CORE.Instance.PlayerCharacter);
         Data.PlayerActor.transform.position = Data.SpawnPoints[0].position;
         Data.PlayerActor.SetPlayableCharacter();
+
+        
+        //----
 
         foreach (StructureProp prop in Data.PresetStructures)
         {

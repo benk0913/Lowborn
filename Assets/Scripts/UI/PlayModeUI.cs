@@ -16,6 +16,9 @@ public class PlayModeUI : MonoBehaviour
     [SerializeField]
     HouseholdInfoUI HouseholdInfo;
 
+    [SerializeField]
+    InventoryUI StorageInfo;
+
     public static PlayModeUI Instance;
 
     Coroutine ShowInteractionOptionsRoutineInstance;
@@ -84,5 +87,16 @@ public class PlayModeUI : MonoBehaviour
     public void ShowHouseholdInfo()
     {
         HouseholdInfo.Show();
+    }
+
+    public void ShowHouseholdStorage()
+    {
+        StorageInfo.gameObject.SetActive(true);
+        StorageInfo.SetInfo(CORE.Instance.CurrentScenario.PlayerDynasty.Storage);
+    }
+
+    public void HideHouseholdStorage()
+    {
+        StorageInfo.gameObject.SetActive(false);
     }
 }

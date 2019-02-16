@@ -9,6 +9,8 @@ public class Dynasty : ScriptableObject
     public string ID;
     public Character HeadOfHouse;
 
+    public Inventory Storage = new Inventory();
+
     public Dynasty()
     {
         this.ID = Util.GenerateUniqueID();

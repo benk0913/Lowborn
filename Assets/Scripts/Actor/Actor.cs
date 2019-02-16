@@ -195,10 +195,15 @@ public class Actor : MonoBehaviour
         while(t<1f)
         {
             t += (1f/currentInteraction.Duration) * Time.deltaTime;
-
-
-
+            
             yield return 0;
+        }
+
+        currentInteraction.OnComplete.Invoke();
+        
+        for(int i=0;i<currentInteraction.OnCompleteEvenets.Count;i++)
+        {
+            currentInteraction.OnCompleteEvenets[i].ExecuteEvent(this, entity);
         }
 
         if(currentInteraction.Repeat)
