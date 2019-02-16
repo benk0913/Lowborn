@@ -13,6 +13,9 @@ public class PlayModeUI : MonoBehaviour
     [SerializeField]
     CharacterInfoUI CharacterInfo;
 
+    [SerializeField]
+    HouseholdInfoUI HouseholdInfo;
+
     public static PlayModeUI Instance;
 
     Coroutine ShowInteractionOptionsRoutineInstance;
@@ -76,5 +79,10 @@ public class PlayModeUI : MonoBehaviour
     public void ShowCharacterInfo()
     {
         CharacterInfo.Show(LocationMap.Instance.Data.PlayerActor.Character);
+    }
+
+    public void ShowHouseholdInfo()
+    {
+        HouseholdInfo.Show();
     }
 }

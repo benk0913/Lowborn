@@ -34,6 +34,11 @@ public class GamePanelUI : MonoBehaviour
         Instance = this;
     }
 
+    private void Start()
+    {
+        SetGameTool((int)GameTool.Play);
+    }
+
     public void SetFloorText(string sText)
     {
         FloorText.text = sText;
