@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8557265851382895189}
   - component: {fileID: 6507293429874421110}
   m_Layer: 0
-  m_Name: spruce2_LOD1
+  m_Name: spruce1_LOD1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 559220714527050577}
   - component: {fileID: 6595038861721890197}
   m_Layer: 0
-  m_Name: spruce2_LOD0
+  m_Name: spruce1_LOD0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,6 +167,9 @@ GameObject:
   - component: {fileID: 1427516093564810822}
   - component: {fileID: 4215786415021025247}
   - component: {fileID: 7776683104189851753}
+  - component: {fileID: 1820467921828311728}
+  - component: {fileID: 7366459950098689331}
+  - component: {fileID: 2616384777694553692}
   m_Layer: 10
   m_Name: Tree2
   m_TagString: Structure
@@ -230,6 +233,7 @@ MonoBehaviour:
     SizeZ: 1
     Type: 0
     IsBuildable: 0
+  Owner: {fileID: 0}
   Floor: 0
   MeshRenderers:
   - {fileID: 6595038861721890197}
@@ -263,3 +267,69 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1820467921828311728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6524476739140068516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1cdbba4e2df194789017e04131cf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionPoints: []
+  PossibleInteractions:
+  - _Interaction: {fileID: 11400000, guid: e395a8f7274ddec44a41436764adb0da, type: 2}
+    OnInteractionComplete:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7366459950098689331}
+          m_MethodName: StartDestruction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+--- !u!114 &7366459950098689331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6524476739140068516}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3dcd1dd857e584da98591b37e6fd52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prop: {fileID: 1427516093564810822}
+  InteractableEntity: {fileID: 1820467921828311728}
+  Anim: {fileID: 2616384777694553692}
+  TimeToDestruct: 1.3
+--- !u!95 &2616384777694553692
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6524476739140068516}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f9d639eec1cfe14fa573325fb144060, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

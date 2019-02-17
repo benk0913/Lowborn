@@ -10,15 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bffce1af1b8f58840ac4949524c42c97, type: 3}
-  m_Name: Rest
+  m_Name: Rest In Bed
   m_EditorClassIdentifier: 
   Description: Rest on this object.
   InteractionAnimationNumber: 0
-  Duration: 10
+  Duration: 5
   ShowProgressBar: 0
   Repeat: 1
+  ReanimateOnRepeat: 0
   OnComplete:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  OnCompleteEvenets:
+  - {fileID: 11400000, guid: 649788e1f7cb2d94e8e2c1c30168f9bf, type: 2}

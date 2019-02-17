@@ -15,8 +15,14 @@ MonoBehaviour:
   Description: Chop this tree down to harvest it's lumber.
   InteractionAnimationNumber: 1
   Duration: 6
+  ShowProgressBar: 1
+  Repeat: 1
+  ReanimateOnRepeat: 1
   OnComplete:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  OnCompleteEvenets:
+  - {fileID: 11400000, guid: e466ed4267a986546b6ef79a37d25cc6, type: 2}
+  - {fileID: 11400000, guid: 18f6c1c71c2aafd46aa3e2721f616729, type: 2}

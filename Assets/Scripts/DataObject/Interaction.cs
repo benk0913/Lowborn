@@ -21,12 +21,10 @@ public class Interaction : ScriptableObject
     [SerializeField]
     public bool Repeat = true;
 
-
-    public UnityEvent OnComplete;
+    [SerializeField]
+    public bool ReanimateOnRepeat = true;
 
     [SerializeField]
     public List<GameEvent> OnCompleteEvenets = new List<GameEvent>();
-
-
 
 }

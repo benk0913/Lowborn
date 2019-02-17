@@ -80,14 +80,18 @@ public class Actor : MonoBehaviour
 
     #region AI_1
 
-    public void HaltCurrentInteraction()
+    public void HaltCurrentInteraction(bool isRepeated = false)
     {
         if(CurrentInteractionRoutineInstance != null)
         {
             StopCoroutine(CurrentInteractionRoutineInstance);
         }
 
-        Body.Anim.SetTrigger("Interrupt");
+        if (!isRepeated)
+        {
+            Body.Anim.SetTrigger("Interrupt");
+        }
+
         CurrentInteraction = null;
 
         if (CurrentProgressBar != null)
@@ -150,21 +154,20 @@ public class Actor : MonoBehaviour
         NavigateTo(target);
     }
 
-    public void Interact(InteractableEntity entity, Interaction currentInteraction)
+    public void Interact(InteractableEntity entity, Interaction currentInteraction, bool Animate = true, bool isRepeated = false)
     {
-        HaltCurrentInteraction();
+        HaltCurrentInteraction(isRepeated);
 
         if (CurrentInteractionRoutineInstance != null)
         {
             StopCoroutine(CurrentInteractionRoutineInstance);
         }
 
-        CurrentInteractionRoutineInstance = StartCoroutine(CurrentInteractionRoutine(entity, currentInteraction));
+        CurrentInteractionRoutineInstance = StartCoroutine(CurrentInteractionRoutine(entity, currentInteraction, Animate));
     }
 
-    private IEnumerator CurrentInteractionRoutine(InteractableEntity entity, Interaction currentInteraction)
+    private IEnumerator CurrentInteractionRoutine(InteractableEntity entity, Interaction currentInteraction, bool Animate)
     {
-
         NavigateTo(entity.GetNearestInteractionPosition(transform.position));
 
         yield return 0;
@@ -181,8 +184,11 @@ public class Actor : MonoBehaviour
 
         FaceTarget(entity.transform.position);
 
-        Body.Anim.SetInteger("InteractionNumber", currentInteraction.InteractionAnimationNumber);
-        Body.Anim.SetTrigger("Interact");
+        if (Animate)
+        {
+            Body.Anim.SetInteger("InteractionNumber", currentInteraction.InteractionAnimationNumber);
+            Body.Anim.SetTrigger("Interact");
+        }
 
         if(currentInteraction.ShowProgressBar)
         {
@@ -195,11 +201,16 @@ public class Actor : MonoBehaviour
         while(t<1f)
         {
             t += (1f/currentInteraction.Duration) * Time.deltaTime;
-            
+
+            if (entity == null || !entity.enabled)
+            {
+                HaltCurrentInteraction();
+            }
+
             yield return 0;
         }
 
-        currentInteraction.OnComplete.Invoke();
+        entity.CompletedInteraction(currentInteraction);
         
         for(int i=0;i<currentInteraction.OnCompleteEvenets.Count;i++)
         {
@@ -208,7 +219,7 @@ public class Actor : MonoBehaviour
 
         if(currentInteraction.Repeat)
         {
-            Interact(entity, currentInteraction);
+            Interact(entity, currentInteraction, currentInteraction.ReanimateOnRepeat, true);
         }
     }
 

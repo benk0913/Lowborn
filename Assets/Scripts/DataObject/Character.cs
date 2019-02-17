@@ -244,6 +244,19 @@ public class Character : ScriptableObject
         RefreshVisualTree();
     }
 
+    public NeedBar GetNeed(Need reference)
+    {
+        foreach(NeedBar need in Needs)
+        {
+            if(need.Identity.name == reference.name)
+            {
+                return need;
+            }
+        }
+
+        return null;
+    }
+
     public class NeedBar
     {
         public Need Identity;
@@ -266,6 +279,16 @@ public class Character : ScriptableObject
             if (CurrentPrecent <= 0f)
             {
                 //REACHED 0 EFFECT!
+            }
+        }
+
+        public void Raise(float byAmount)
+        {
+            CurrentPrecent += byAmount;
+
+            if(CurrentPrecent > 1f)
+            {
+                CurrentPrecent = 1f;
             }
         }
     }

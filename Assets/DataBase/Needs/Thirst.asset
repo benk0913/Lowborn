@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Thirst
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 71cb3fc0e9212374e9cf10fc3c1f32e0, type: 3}
-  BaseDecrease: 0.0005
+  BaseDecrease: 0.003

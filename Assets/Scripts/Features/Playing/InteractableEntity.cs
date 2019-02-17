@@ -39,16 +39,15 @@ public class InteractableEntity : MonoBehaviour
         return GetNearestInteractionPoint(from).position;
     }
 
-    private void Start()
+    public void CompletedInteraction(Interaction reference)
     {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
-        for (int i = 0; i < PossibleInteractions.Count; i++)
+        foreach(InteractionContainer interactionContainer in PossibleInteractions)
         {
-            PossibleInteractions[i]._Interaction.OnComplete.AddListener(PossibleInteractions[i].OnInteractionComplete.Invoke);
+            if(interactionContainer._Interaction.name == reference.name)
+            {
+                interactionContainer.OnInteractionComplete.Invoke();
+                return;
+            }
         }
     }
 
@@ -57,6 +56,7 @@ public class InteractableEntity : MonoBehaviour
     {
         [SerializeField]
         public Interaction _Interaction;
+
 
         [SerializeField]
         public UnityEvent OnInteractionComplete;

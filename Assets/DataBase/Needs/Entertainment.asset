@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Entertainment
   m_EditorClassIdentifier: 
   Icon: {fileID: 21300000, guid: 56bf5e4deca83a6429a8349ea3268fe1, type: 3}
-  BaseDecrease: 0.00001
+  BaseDecrease: 0.001

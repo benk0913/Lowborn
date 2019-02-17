@@ -91,6 +91,8 @@ GameObject:
   - component: {fileID: 9042314110669919907}
   - component: {fileID: 3723498808324936755}
   - component: {fileID: 7656550404558334337}
+  - component: {fileID: 3701478770469355487}
+  - component: {fileID: 3168816926799178704}
   m_Layer: 10
   m_Name: Tree1
   m_TagString: Structure
@@ -154,6 +156,7 @@ MonoBehaviour:
     SizeZ: 1
     Type: 0
     IsBuildable: 0
+  Owner: {fileID: 0}
   Floor: 0
   MeshRenderers:
   - {fileID: 23104430831757920}
@@ -204,9 +207,55 @@ MonoBehaviour:
   - _Interaction: {fileID: 11400000, guid: e395a8f7274ddec44a41436764adb0da, type: 2}
     OnInteractionComplete:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 3701478770469355487}
+          m_MethodName: StartDestruction
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
       m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
         Culture=neutral, PublicKeyToken=null
+--- !u!114 &3701478770469355487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005474799092082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b3dcd1dd857e584da98591b37e6fd52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Prop: {fileID: 1005474799092083}
+  InteractableEntity: {fileID: 7656550404558334337}
+  Anim: {fileID: 3168816926799178704}
+  TimeToDestruct: 1.3
+--- !u!95 &3168816926799178704
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005474799092082}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8f9d639eec1cfe14fa573325fb144060, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1035371664206482
 GameObject:
   m_ObjectHideFlags: 0
