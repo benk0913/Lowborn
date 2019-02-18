@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e677d9031da43554abf2225927f455a8, type: 3}
-  m_Name: Bed 1
+  m_Script: {fileID: 11500000, guid: 9dcd44482ef4d6a49b0c4ddc045e98f2, type: 3}
+  m_Name: Dresser
   m_EditorClassIdentifier: 
-  Type: 3
+  Type: 0
   Description: 
-  Icon: {fileID: 21300000, guid: d6100f6a3431f3340a2e3d0d70d1a337, type: 3}
+  Icon: {fileID: 0}
   Price:
-    Silver: 100
-  Prefab: {fileID: 100000, guid: 0c01cb1b89808a34ca1e0dc3e2db91b5, type: 3}
+    Silver: 50
+  Prefab: {fileID: 100000, guid: 9a435e35a4f16604b85a3a727bf8462d, type: 3}
   Buildable: 1
+  ContainerStorageSize: 0
