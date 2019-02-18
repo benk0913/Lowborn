@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class StructureProp : MonoBehaviour
 {
     //TODO Replace Data with a reference to a prop scriptable obj & move data params to there.
     [SerializeField]
-    public StructureData Data;
+    public Prop Data;
 
     [System.NonSerialized]
     public List<Vector2> OccupiedSMAPs = new List<Vector2>();
@@ -71,14 +72,7 @@ public class StructureProp : MonoBehaviour
         SaveOriginalMaterials();
     }
     
-    public void Initialize(int currentFloor, Dynasty owner)
-    {
-        this.Owner = owner;
-        this.Floor = currentFloor;
-        this.OccupySMAP();
-    }
-
-    public void OccupySMAP()
+    public void OccupySMAP(bool CurveNavMesh = true)
     {
         OccupySpot(transform.position.x, transform.position.z);
 
@@ -107,6 +101,33 @@ public class StructureProp : MonoBehaviour
 
             }
         }
+
+        if (CurveNavMesh)
+        {
+            LocationMap.Instance.GetComponent<NavMeshSurface>().BuildNavMesh();
+        }
+    }
+
+    public void RemoveStructureProp()
+    {
+        RemoveOccupation();
+
+        for (int i = 0; i < Data.OnRemoveEvents.Count; i++)
+        {
+            Data.OnRemoveEvents[i].ExecuteEvent(this);
+        }
+    }
+
+    public void PlaceStructureProp(int currentFloor, Dynasty owner)
+    {
+        this.Owner = owner;
+        this.Floor = currentFloor;
+        this.OccupySMAP();
+        
+        for(int i=0;i<Data.OnPlaceEvents.Count;i++)
+        {
+            Data.OnPlaceEvents[i].ExecuteEvent(this);
+        }
     }
 
     public void RemoveOccupation()
@@ -115,9 +136,11 @@ public class StructureProp : MonoBehaviour
         {
             LocationMap.Instance.RemoveOccupationFromSMAP(OccupiedSMAPs[i], this);
         }
+
+        LocationMap.Instance.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
-    private void OccupySpot(float x, float z)
+    private void OccupySpot(float x, float z, bool Recurve = true)
     {
         if (!LocationMap.Instance.AddOccupationToSMAP(new Vector2(x, z), this))
         {
@@ -125,6 +148,7 @@ public class StructureProp : MonoBehaviour
         }
 
         OccupiedSMAPs.Add(new Vector2(x, z));
+
     }
 
     public void ShowMesh()

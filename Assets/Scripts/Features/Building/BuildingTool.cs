@@ -264,22 +264,22 @@ public class BuildingTool : MonoBehaviour
         obj.transform.position = BlueprintItem.transform.position;
         obj.transform.rotation = BlueprintItem.transform.rotation;
 
-        GameObject blueprintMesh = BlueprintItem.GetComponent<BlueprintObject>().MeshObject;
+        StructureProp blueprintMesh = BlueprintItem.GetComponent<StructureProp>();
 
         //A small cheat to initialize the collider in timescale 0
         obj.GetComponent<Collider>().enabled = false;
         obj.GetComponent<Collider>().enabled = true;
 
-        ResourcesLoader.Instance.GetRecycledObject("MeshParticles").GetComponent<MeshParticles>()
-            .SetTarget(blueprintMesh.GetComponent<MeshFilter>());
+        foreach (MeshRenderer renderer in blueprintMesh.MeshRenderers)
+        {
+            ResourcesLoader.Instance.GetRecycledObject("MeshParticles").GetComponent<MeshParticles>().SetTarget(renderer.GetComponent<MeshFilter>());
+        }
 
         StructureProp prop = obj.GetComponent<StructureProp>();
-        prop.Initialize(CurrentFloor, CORE.Instance.CurrentScenario.PlayerDynasty);
+        prop.PlaceStructureProp(CurrentFloor, CORE.Instance.CurrentScenario.PlayerDynasty);
 
         RefreshBlueprintState();
 
-        //LocationMap.Instance.GetComponent<NavMeshSurface>().RemoveData();
-        LocationMap.Instance.GetComponent<NavMeshSurface>().BuildNavMesh();
     }
 
     void RefreshBlueprintState()
@@ -428,7 +428,7 @@ public class BuildingTool : MonoBehaviour
     {
         if (structure.Data.IsBuildable)
         {
-            structure.RemoveOccupation();
+            structure.RemoveStructureProp();
             Destroy(structure.gameObject);
         }
         else

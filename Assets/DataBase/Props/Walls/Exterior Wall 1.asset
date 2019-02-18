@@ -19,3 +19,9 @@ MonoBehaviour:
     Silver: 5
   Prefab: {fileID: 100000, guid: 093f8dbc6126e414db85a0993f49a0e4, type: 3}
   Buildable: 1
+  SizeX: 1
+  SizeZ: 0
+  _PropType: 0
+  IsBuildable: 1
+  OnPlaceEvents: []
+  OnRemoveEvents: []

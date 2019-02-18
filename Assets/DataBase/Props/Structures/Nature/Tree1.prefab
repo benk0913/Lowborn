@@ -151,11 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8baf11a9eb702448f2096fc8922163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data:
-    SizeX: 1
-    SizeZ: 1
-    Type: 0
-    IsBuildable: 0
+  Data: {fileID: 11400000, guid: 42f5687023fb6f248bd11cdc32e9fd5c, type: 2}
   Owner: {fileID: 0}
   Floor: 0
   MeshRenderers:

@@ -14,9 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 0
   Description: 
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 38a156bb7077aaf4088edd2ad15ba28d, type: 3}
   Price:
     Silver: 50
   Prefab: {fileID: 100000, guid: 9a435e35a4f16604b85a3a727bf8462d, type: 3}
   Buildable: 1
-  ContainerStorageSize: 0
+  SizeX: 1
+  SizeZ: 0
+  _PropType: 0
+  IsBuildable: 1
+  OnPlaceEvents:
+  - {fileID: 11400000, guid: 767de8308bbb25b4ea2bce74dd1827d1, type: 2}
+  OnRemoveEvents:
+  - {fileID: 11400000, guid: d4ded6bb380a69f4c90ab6e450a1c9c4, type: 2}
+  ContainerStorageSize: 5

@@ -262,27 +262,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2065484, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: m_NormalizedViewPortRect.x
-      value: 0.37364265
+      value: 0.36610878
       objectReference: {fileID: 0}
     - target: {fileID: 2065484, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.25271472
+      value: 0.26778242
       objectReference: {fileID: 0}
     - target: {fileID: 2065484, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: 0.2754386
+      value: 0.26208177
       objectReference: {fileID: 0}
     - target: {fileID: 2065484, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
-      value: 0.44912282
+      value: 0.47583643
       objectReference: {fileID: 0}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.size
-      value: 0
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.size
-      value: 0
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: boundingBoxZone
@@ -295,20 +295,20 @@ PrefabInstance:
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[1]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 100000, guid: 0c01cb1b89808a34ca1e0dc3e2db91b5, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[2]
       value: 
-      objectReference: {fileID: 6524476739140068516, guid: 49300bd820f121d4a9ac68e4a654b279,
-        type: 3}
+      objectReference: {fileID: 100000, guid: 994d10d03fe81bf469f99d59dcc31abd, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[3]
       value: 
-      objectReference: {fileID: 100000, guid: c9170cc039623ef40ab91607616f53df, type: 3}
+      objectReference: {fileID: 100000, guid: 9a435e35a4f16604b85a3a727bf8462d, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[4]
       value: 
-      objectReference: {fileID: 100000, guid: cdc44d467040f874ea6e0791ee919669, type: 3}
+      objectReference: {fileID: 1005474799092082, guid: 458512a4506bf3648848c694434a3da2,
+        type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: iconMask
       value: 
@@ -320,145 +320,146 @@ PrefabInstance:
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[1]
       value: 
-      objectReference: {fileID: 1005474799092082, guid: 458512a4506bf3648848c694434a3da2,
-        type: 3}
+      objectReference: {fileID: 100000, guid: 0c01cb1b89808a34ca1e0dc3e2db91b5, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[2]
       value: 
-      objectReference: {fileID: 6524476739140068516, guid: 49300bd820f121d4a9ac68e4a654b279,
-        type: 3}
+      objectReference: {fileID: 100000, guid: 994d10d03fe81bf469f99d59dcc31abd, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[3]
       value: 
-      objectReference: {fileID: 100000, guid: c9170cc039623ef40ab91607616f53df, type: 3}
+      objectReference: {fileID: 100000, guid: 9a435e35a4f16604b85a3a727bf8462d, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[4]
       value: 
-      objectReference: {fileID: 100000, guid: cdc44d467040f874ea6e0791ee919669, type: 3}
+      objectReference: {fileID: 1005474799092082, guid: 458512a4506bf3648848c694434a3da2,
+        type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: currentItem
-      value: 1
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: iconOutputFolder
-      value: \Assets\DataBase\Props\Icons
+      value: /DataBase/Props/Icons
       objectReference: {fileID: 0}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[5]
       value: 
-      objectReference: {fileID: 100000, guid: f74c01671a5446645a831df20997b007, type: 3}
+      objectReference: {fileID: 6524476739140068516, guid: 49300bd820f121d4a9ac68e4a654b279,
+        type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[6]
       value: 
-      objectReference: {fileID: 100000, guid: 093f8dbc6126e414db85a0993f49a0e4, type: 3}
+      objectReference: {fileID: 100000, guid: c9170cc039623ef40ab91607616f53df, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[7]
       value: 
-      objectReference: {fileID: 100000, guid: 48a3cf0d4dedaf74c854591d0d4c5666, type: 3}
+      objectReference: {fileID: 100000, guid: cdc44d467040f874ea6e0791ee919669, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[8]
       value: 
-      objectReference: {fileID: 100000, guid: 645c91dd45e0aa1488854f497a405f93, type: 3}
+      objectReference: {fileID: 100000, guid: f74c01671a5446645a831df20997b007, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[9]
       value: 
-      objectReference: {fileID: 100000, guid: 97e646203ee868e42918f8f41e8842df, type: 3}
+      objectReference: {fileID: 100000, guid: 093f8dbc6126e414db85a0993f49a0e4, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[10]
       value: 
-      objectReference: {fileID: 100000, guid: 444ec3524bc70c147b80e0c2fe8a1e36, type: 3}
+      objectReference: {fileID: 100000, guid: 48a3cf0d4dedaf74c854591d0d4c5666, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[11]
       value: 
-      objectReference: {fileID: 100000, guid: cf2ac595c5b4cae4cb6c3f0c4039c44e, type: 3}
+      objectReference: {fileID: 100000, guid: 645c91dd45e0aa1488854f497a405f93, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[12]
       value: 
-      objectReference: {fileID: 100000, guid: 5cd209ebbc6e7d64ba613cfa05764312, type: 3}
+      objectReference: {fileID: 100000, guid: 97e646203ee868e42918f8f41e8842df, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[13]
       value: 
-      objectReference: {fileID: 100000, guid: eb9a03d30bedecf46a9114e78df2ce87, type: 3}
+      objectReference: {fileID: 100000, guid: 444ec3524bc70c147b80e0c2fe8a1e36, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[14]
       value: 
-      objectReference: {fileID: 100000, guid: a955779d368c8f645a6c043fe5e73fdd, type: 3}
+      objectReference: {fileID: 100000, guid: cf2ac595c5b4cae4cb6c3f0c4039c44e, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[15]
       value: 
-      objectReference: {fileID: 100000, guid: fa79309885b3446418dde5692d9beb7a, type: 3}
+      objectReference: {fileID: 100000, guid: 5cd209ebbc6e7d64ba613cfa05764312, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[16]
       value: 
-      objectReference: {fileID: 100000, guid: 913f16e4ab5541f48a9cdaf27b2795b7, type: 3}
+      objectReference: {fileID: 100000, guid: eb9a03d30bedecf46a9114e78df2ce87, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[17]
       value: 
-      objectReference: {fileID: 100000, guid: 9675bb49466d3be4d8b8bcf7ae3b983b, type: 3}
+      objectReference: {fileID: 100000, guid: a955779d368c8f645a6c043fe5e73fdd, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[18]
       value: 
-      objectReference: {fileID: 100000, guid: 7ecf2dd8a0a347a4cad76c6b471322c4, type: 3}
+      objectReference: {fileID: 100000, guid: fa79309885b3446418dde5692d9beb7a, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: prefabsQueue.Array.data[19]
       value: 
-      objectReference: {fileID: 100000, guid: 0c01cb1b89808a34ca1e0dc3e2db91b5, type: 3}
+      objectReference: {fileID: 100000, guid: 913f16e4ab5541f48a9cdaf27b2795b7, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[5]
       value: 
-      objectReference: {fileID: 100000, guid: f74c01671a5446645a831df20997b007, type: 3}
+      objectReference: {fileID: 6524476739140068516, guid: 49300bd820f121d4a9ac68e4a654b279,
+        type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[6]
       value: 
-      objectReference: {fileID: 100000, guid: 093f8dbc6126e414db85a0993f49a0e4, type: 3}
+      objectReference: {fileID: 100000, guid: c9170cc039623ef40ab91607616f53df, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[7]
       value: 
-      objectReference: {fileID: 100000, guid: 48a3cf0d4dedaf74c854591d0d4c5666, type: 3}
+      objectReference: {fileID: 100000, guid: cdc44d467040f874ea6e0791ee919669, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[8]
       value: 
-      objectReference: {fileID: 100000, guid: 645c91dd45e0aa1488854f497a405f93, type: 3}
+      objectReference: {fileID: 100000, guid: f74c01671a5446645a831df20997b007, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[9]
       value: 
-      objectReference: {fileID: 100000, guid: 97e646203ee868e42918f8f41e8842df, type: 3}
+      objectReference: {fileID: 100000, guid: 093f8dbc6126e414db85a0993f49a0e4, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[10]
       value: 
-      objectReference: {fileID: 100000, guid: 444ec3524bc70c147b80e0c2fe8a1e36, type: 3}
+      objectReference: {fileID: 100000, guid: 48a3cf0d4dedaf74c854591d0d4c5666, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[11]
       value: 
-      objectReference: {fileID: 100000, guid: cf2ac595c5b4cae4cb6c3f0c4039c44e, type: 3}
+      objectReference: {fileID: 100000, guid: 645c91dd45e0aa1488854f497a405f93, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[12]
       value: 
-      objectReference: {fileID: 100000, guid: 5cd209ebbc6e7d64ba613cfa05764312, type: 3}
+      objectReference: {fileID: 100000, guid: 97e646203ee868e42918f8f41e8842df, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[13]
       value: 
-      objectReference: {fileID: 100000, guid: eb9a03d30bedecf46a9114e78df2ce87, type: 3}
+      objectReference: {fileID: 100000, guid: 444ec3524bc70c147b80e0c2fe8a1e36, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[14]
       value: 
-      objectReference: {fileID: 100000, guid: a955779d368c8f645a6c043fe5e73fdd, type: 3}
+      objectReference: {fileID: 100000, guid: cf2ac595c5b4cae4cb6c3f0c4039c44e, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[15]
       value: 
-      objectReference: {fileID: 100000, guid: fa79309885b3446418dde5692d9beb7a, type: 3}
+      objectReference: {fileID: 100000, guid: 5cd209ebbc6e7d64ba613cfa05764312, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[16]
       value: 
-      objectReference: {fileID: 100000, guid: 913f16e4ab5541f48a9cdaf27b2795b7, type: 3}
+      objectReference: {fileID: 100000, guid: eb9a03d30bedecf46a9114e78df2ce87, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[17]
       value: 
-      objectReference: {fileID: 100000, guid: 9675bb49466d3be4d8b8bcf7ae3b983b, type: 3}
+      objectReference: {fileID: 100000, guid: a955779d368c8f645a6c043fe5e73fdd, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: completeQueue.Array.data[18]
       value: 
-      objectReference: {fileID: 100000, guid: 7ecf2dd8a0a347a4cad76c6b471322c4, type: 3}
+      objectReference: {fileID: 100000, guid: fa79309885b3446418dde5692d9beb7a, type: 3}
     - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: iconInputFolder
       value: Assets/DataBase/Props/Structures/
@@ -467,8 +468,71 @@ PrefabInstance:
       propertyPath: errorStack
       value: '
 
-        GenerateIcons - Generation can''t start : no prefab in the list !'
+        GenerateIcons - 0 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Floor.png
+
+        GenerateIcons - 1 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Bed
+        1.png
+
+        GenerateIcons - 2 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Crate.png
+
+        GenerateIcons - 3 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Dresser.png
+
+        GenerateIcons - 4 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Tree1.png
+
+        GenerateIcons - 5 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Tree2.png
+
+        GenerateIcons - 6 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Roof_1x1_1.png
+
+        GenerateIcons - 7 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Roof_2x1_1.png
+
+        GenerateIcons - 8 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Roof_2x2_1.png
+
+        GenerateIcons - 9 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_1.png
+
+        GenerateIcons - 10 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_2.png
+
+        GenerateIcons - 11 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_3.png
+
+        GenerateIcons - 12 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_4.png
+
+        GenerateIcons - 13 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_5.png
+
+        GenerateIcons - 14 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_Doorway.png
+
+        GenerateIcons - 15 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_Doorway_2.png
+
+        GenerateIcons - 16 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_Doorway_3.png
+
+        GenerateIcons - 17 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_Interior_1.png
+
+        GenerateIcons - 18 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_Interior_Doorway.png
+
+        GenerateIcons - 19 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_Window.png
+
+        GenerateIcons - 20 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_Window_2.png
+
+        GenerateIcons - 21 - icon can not be saved. Check your export path : D:/Users/Fapperson/Documents/GitHub/Lowborn/Assets/Assets/DataBase/Props/Icons/Wall_Window_3.png'
       objectReference: {fileID: 0}
+    - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
+      propertyPath: prefabsQueue.Array.data[20]
+      value: 
+      objectReference: {fileID: 100000, guid: 9675bb49466d3be4d8b8bcf7ae3b983b, type: 3}
+    - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
+      propertyPath: prefabsQueue.Array.data[21]
+      value: 
+      objectReference: {fileID: 100000, guid: 7ecf2dd8a0a347a4cad76c6b471322c4, type: 3}
+    - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
+      propertyPath: completeQueue.Array.data[19]
+      value: 
+      objectReference: {fileID: 100000, guid: 913f16e4ab5541f48a9cdaf27b2795b7, type: 3}
+    - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
+      propertyPath: completeQueue.Array.data[20]
+      value: 
+      objectReference: {fileID: 100000, guid: 9675bb49466d3be4d8b8bcf7ae3b983b, type: 3}
+    - target: {fileID: 11400032, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
+      propertyPath: completeQueue.Array.data[21]
+      value: 
+      objectReference: {fileID: 100000, guid: 7ecf2dd8a0a347a4cad76c6b471322c4, type: 3}
     - target: {fileID: 126560, guid: 617913a8b5ec140439e99bc7fba84fcb, type: 3}
       propertyPath: m_IsActive
       value: 1

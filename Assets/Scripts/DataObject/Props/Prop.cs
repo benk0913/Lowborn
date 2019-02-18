@@ -13,4 +13,25 @@ public class Prop : ScriptableObject
     public ValueData Price;
     public GameObject Prefab;
     public bool Buildable = true;
+
+
+    [SerializeField]
+    public int SizeX = 1;
+
+    [SerializeField]
+    public int SizeZ = 0;
+
+    [SerializeField]
+    public PropType _PropType;
+
+    [SerializeField]
+    public bool IsBuildable = true;
+
+
+    [SerializeField]
+    public List<GameEvent> OnPlaceEvents  = new List<GameEvent>();
+
+    [SerializeField]
+    public List<GameEvent> OnRemoveEvents = new List<GameEvent>();
+
 }

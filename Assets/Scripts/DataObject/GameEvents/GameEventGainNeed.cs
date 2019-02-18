@@ -12,7 +12,7 @@ public class GameEventGainNeed : GameEvent
 
     public bool ShowHover = true;
 
-    public override void ExecuteEvent(Actor exectuer = null, InteractableEntity entity = null)
+    public override void ExecuteEvent(Object exectuer = null, Object entity = null)
     {
         base.ExecuteEvent(exectuer, entity);
 
@@ -33,7 +33,7 @@ public class GameEventGainNeed : GameEvent
         HoverComponent.transform.SetParent(PlayModeUI.Instance.transform);
 
         HoverComponent.transform.position =
-            Camera.main.WorldToScreenPoint(exectuer.transform.position) + new Vector3(Random.Range(-25f, 25f), Random.Range(-25f, 25f), 0f);
+            Camera.main.WorldToScreenPoint(((Actor)exectuer).transform.position) + new Vector3(Random.Range(-25f, 25f), Random.Range(-25f, 25f), 0f);
 
         HoverComponent.SetInfo(needType.Icon, RandomPrecent);
     }

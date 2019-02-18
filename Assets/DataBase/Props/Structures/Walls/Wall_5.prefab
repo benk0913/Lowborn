@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400000}
-  - component: {fileID: 8060492667760214421}
   - component: {fileID: 7817358093045639307}
   - component: {fileID: 6761019688022231214}
   - component: {fileID: 1980031890826950763}
@@ -35,20 +34,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &8060492667760214421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabdd484261ffe54ebbef81fd95a0d3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MeshObject: {fileID: 6942967627208317374}
-  TargetObject: 
 --- !u!114 &7817358093045639307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61,11 +46,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8baf11a9eb702448f2096fc8922163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data:
-    SizeX: 1
-    SizeZ: 0
-    Type: 0
-    IsBuildable: 1
+  Data: {fileID: 11400000, guid: 048be14e7622c934882fd138bce43d56, type: 2}
+  Owner: {fileID: 0}
   Floor: 0
   MeshRenderers:
   - {fileID: 6942967627210508158}

@@ -135,7 +135,7 @@ public class LocationMap : MonoBehaviour
 
         foreach (StructureProp prop in Data.PresetStructures)
         {
-            prop.OccupySMAP();
+            prop.OccupySMAP(false);
         }
 
         StartCoroutine(RefreshGameRoutine());

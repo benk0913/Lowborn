@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400000}
-  - component: {fileID: 8060492667760214421}
   - component: {fileID: 7817358093045639307}
   - component: {fileID: 6924049687235887152}
   - component: {fileID: 5261344542312193657}
@@ -36,20 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
---- !u!114 &8060492667760214421
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabdd484261ffe54ebbef81fd95a0d3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MeshObject: {fileID: 2694266294006831350}
-  TargetObject: 
 --- !u!114 &7817358093045639307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,14 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8baf11a9eb702448f2096fc8922163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data:
-    Name: Brick Wall
-    Description: 
-    PriceValue:
-      Silver: 0
-    SizeX: 1
-    SizeZ: 0
-    Type: 0
+  Data: {fileID: 11400000, guid: 6156fe6f95f7b6e479c1ca373e5e174c, type: 2}
+  Owner: {fileID: 0}
   Floor: 0
   MeshRenderers:
   - {fileID: 2694266294009052992}
@@ -181,12 +160,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87b7609d6bdd828418e0683654cede03, type: 3}
---- !u!1 &2694266294006831350 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 129652, guid: 87b7609d6bdd828418e0683654cede03,
-    type: 3}
-  m_PrefabInstance: {fileID: 2694266294006719106}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2694266294006672080 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 477266, guid: 87b7609d6bdd828418e0683654cede03,

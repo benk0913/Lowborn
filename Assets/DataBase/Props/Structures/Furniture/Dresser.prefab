@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 400000}
-  - component: {fileID: 7012360720492556709}
   - component: {fileID: 4614949926268609658}
   - component: {fileID: 2035460294407618687}
   - component: {fileID: 918149267652956699}
@@ -36,20 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7012360720492556709
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eabdd484261ffe54ebbef81fd95a0d3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MeshObject: {fileID: 3291751777257037876}
-  TargetObject: 
 --- !u!114 &4614949926268609658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,11 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e8baf11a9eb702448f2096fc8922163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Data:
-    SizeX: 1
-    SizeZ: 1
-    Type: 4
-    IsBuildable: 1
+  Data: {fileID: 11400000, guid: 0d62d61844c58404baef1950fab37668, type: 2}
   Owner: {fileID: 0}
   Floor: 0
   MeshRenderers:
@@ -86,8 +67,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.74531174, y: 0.8143041, z: 1.57}
+  m_Center: {x: -1.2022724, y: 0.42624557, z: 0.49}
 --- !u!208 &918149267652956699
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -98,11 +79,11 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 1.6713295, y: 0.4705689, z: 0.988823}
+  m_Extents: {x: 0.37265584, y: 0.40715206, z: 0.785}
   m_MoveThreshold: 0.1
   m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: -0.075634, y: 0.5426862, z: 0.5823135}
+  m_Center: {x: -1.202272, y: 0.4262456, z: 0.49}
   m_TimeToStationary: 0.5
 --- !u!114 &2225071813697539523
 MonoBehaviour:
@@ -210,12 +191,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 661fbafd05f1ae64f858caceac0c6a2c, type: 3}
---- !u!1 &3291751777257037876 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 168334, guid: 661fbafd05f1ae64f858caceac0c6a2c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3291751777256878522}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3291751777257265954 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 404120, guid: 661fbafd05f1ae64f858caceac0c6a2c,

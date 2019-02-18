@@ -30,7 +30,7 @@ public class DestructableEntity : MonoBehaviour
     {
         if (Prop != null)
         {
-            Prop.RemoveOccupation();
+            Prop.RemoveStructureProp();
         }
 
         Destroy(this.gameObject);

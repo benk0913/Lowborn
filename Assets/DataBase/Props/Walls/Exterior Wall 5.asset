@@ -13,9 +13,15 @@ MonoBehaviour:
   m_Name: Exterior Wall 5
   m_EditorClassIdentifier: 
   Type: 0
-  Description: Exterior Window Wall A
-  Icon: {fileID: 21300000, guid: f615e346c6441db49991570ff319c1f0, type: 3}
+  Description: Exterior Wall E
+  Icon: {fileID: 21300000, guid: 222de0c5ed075ce43b460aa6dd646532, type: 3}
   Price:
     Silver: 5
-  Prefab: {fileID: 100000, guid: 913f16e4ab5541f48a9cdaf27b2795b7, type: 3}
+  Prefab: {fileID: 100000, guid: 444ec3524bc70c147b80e0c2fe8a1e36, type: 3}
   Buildable: 1
+  SizeX: 1
+  SizeZ: 0
+  _PropType: 0
+  IsBuildable: 1
+  OnPlaceEvents: []
+  OnRemoveEvents: []
