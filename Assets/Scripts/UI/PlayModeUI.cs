@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ public class PlayModeUI : MonoBehaviour
     HouseholdInfoUI HouseholdInfo;
 
     [SerializeField]
-    InventoryUI StorageInfo;
+    public InventoryUI StorageInfo;
 
     public static PlayModeUI Instance;
 
@@ -29,6 +30,34 @@ public class PlayModeUI : MonoBehaviour
 
         Portrait.SetCharacter(CORE.Instance.CurrentScenario.PlayerDynasty.HeadOfHouse);
     }
+
+    private void OnEnable()
+    {
+        AddListeners();
+    }
+
+    private void OnDisable()
+    {
+        RemoveListeners();
+    }
+
+    #region Event Handling
+    void AddListeners()
+    {
+        CORE.Instance.CurrentScenario.PlayerDynasty.Storage.ItemFailedEvent.AddListener(OnItemFailed);
+    }
+
+    void RemoveListeners()
+    {
+        CORE.Instance.CurrentScenario.PlayerDynasty.Storage.ItemFailedEvent.RemoveListener(OnItemFailed);
+    }
+
+    private void OnItemFailed(Item item)
+    {
+        StorageInfo.OnItemFailed(item);
+    }
+
+    #endregion
 
     public void ShowInteractionOptions(InteractableEntity entity)
     {

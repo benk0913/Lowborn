@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e677d9031da43554abf2225927f455a8, type: 3}
+  m_Name: Bush 1
+  m_EditorClassIdentifier: 
+  Type: 0
+  Description: 
+  Icon: {fileID: 21300000, guid: 5c8cd5b448e82f64e9be7ef6e322469e, type: 3}
+  Price:
+    Silver: 0
+  Prefab: {fileID: 1005474799092082, guid: 848030e46979ac24d9c066b45d04fafa, type: 3}
+  Buildable: 1
+  SizeX: 0
+  SizeZ: 0
+  _PropType: 0
+  IsBuildable: 1
+  OnPlaceEvents: []
+  OnRemoveEvents: []

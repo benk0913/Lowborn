@@ -6,7 +6,24 @@ using UnityEngine.Events;
 
 public class Inventory
 {
-    public int WeightCap;
+    public int WeightCap
+    {
+        get
+        {
+            return weightCap;
+        }
+        set
+        {
+            weightCap = value;
+
+            if(weightCap < TotalWeight)
+            {
+                InventoryOutOfStorage.Invoke();
+            }
+        }
+    }
+    int weightCap;
+
     public int TotalWeight
     {
         get
@@ -20,9 +37,13 @@ public class Inventory
             return TotalAmount;
         }
     }
+
     public Dictionary<string, InventoryItem> Items { private set; get; }
 
     public UnityEvent InventoryChanged = new UnityEvent();
+    public UnityEvent InventoryOutOfStorage = new UnityEvent();
+    public CannotAddItemEvent ItemFailedEvent = new CannotAddItemEvent();
+
 
     public Inventory()
     {
@@ -34,6 +55,7 @@ public class Inventory
     {
         if(item.Weight * amount > WeightCap)
         {
+            ItemFailedEvent.Invoke(item);
             return false;
         }
 
@@ -73,6 +95,13 @@ public class Inventory
         }
 
         InventoryChanged.Invoke();
+
+
+        if(TotalWeight > WeightCap)
+        {
+            InventoryOutOfStorage.Invoke();
+        }
+
         return true;
     }
     
@@ -102,5 +131,10 @@ public class Inventory
             this.ItemIdentity = item;
             this.Amount = amount;
         }
+    }
+
+    public class CannotAddItemEvent : UnityEvent<Item>
+    {
+
     }
 }

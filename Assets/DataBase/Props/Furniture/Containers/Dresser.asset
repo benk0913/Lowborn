@@ -19,7 +19,7 @@ MonoBehaviour:
     Silver: 50
   Prefab: {fileID: 100000, guid: 9a435e35a4f16604b85a3a727bf8462d, type: 3}
   Buildable: 1
-  SizeX: 1
+  SizeX: 0
   SizeZ: 0
   _PropType: 0
   IsBuildable: 1
