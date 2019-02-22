@@ -53,9 +53,9 @@ public class Inventory
 
     public bool AddItem(Item item, int amount = 1)
     {
-        if(item.Weight * amount > WeightCap)
+        if(TotalWeight + ( item.Weight * amount ) > WeightCap)
         {
-            ItemFailedEvent.Invoke(item);
+            ItemFailedEvent.Invoke(item, amount);
             return false;
         }
 
@@ -133,7 +133,7 @@ public class Inventory
         }
     }
 
-    public class CannotAddItemEvent : UnityEvent<Item>
+    public class CannotAddItemEvent : UnityEvent<Item, int>
     {
 
     }

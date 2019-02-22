@@ -21,6 +21,9 @@ public class InventoryItemUI : MonoBehaviour
     [SerializeField]
     Image ItemIcon;
 
+    [SerializeField]
+    Image ItemBG;
+
     public Inventory.InventoryItem CurrentItem;
 
     public void SetInfo(Inventory.InventoryItem item)
@@ -34,8 +37,18 @@ public class InventoryItemUI : MonoBehaviour
         ItemAmount.text = item.Amount.ToString();
     }
 
-    public void ShowControlPanel()
+    public void Select()
     {
         PlayModeUI.Instance.StorageInfo.SelectItem(this);
+    }
+
+    public void SetSelected()
+    {
+        ItemBG.color = Color.blue;
+    }
+
+    public void Deselect()
+    {
+        ItemBG.color = Color.white;
     }
 }

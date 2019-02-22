@@ -12,6 +12,43 @@ public class BuildToolUI : MonoBehaviour
         Initialize();    
     }
 
+
+    private void OnEnable()
+    {
+        AddListeners();
+    }
+
+    private void OnDisable()
+    {
+        RemoveListeners();
+    }
+
+    #region Event Handling
+    void AddListeners()
+    {
+        CORE.Instance.CurrentScenario.PlayerDynasty.Storage.ItemFailedEvent.AddListener(OnItemFailed);
+        CORE.Instance.CurrentScenario.PlayerDynasty.Storage.InventoryOutOfStorage.AddListener(OnOutOfStorage);
+    }
+
+    void RemoveListeners()
+    {
+        CORE.Instance.CurrentScenario.PlayerDynasty.Storage.ItemFailedEvent.RemoveListener(OnItemFailed);
+        CORE.Instance.CurrentScenario.PlayerDynasty.Storage.InventoryOutOfStorage.RemoveListener(OnOutOfStorage);
+    }
+
+    public void OnItemFailed(Item item, int amount)
+    {
+        LocationMap.Instance.CurrentGameTool = GameTool.Play;
+        PlayModeUI.Instance.OnItemFailed(item, amount);
+    }
+
+    public void OnOutOfStorage()
+    {
+        LocationMap.Instance.CurrentGameTool = GameTool.Play;
+        PlayModeUI.Instance.OnOutOfStorage();
+    }
+    #endregion
+
     private void Initialize()
     {
         GameObject tempItem;

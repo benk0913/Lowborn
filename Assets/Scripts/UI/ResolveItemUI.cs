@@ -12,9 +12,15 @@ public class ResolveItemUI : MonoBehaviour
     GameObject ItemResolvePanel;
 
     Item CurrentItemToResolve;
+    int CurrentAmount;
 
-    public void Show(Item item)
+    public void Show(Item item, int amount)
     {
+        if (this.gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         this.gameObject.SetActive(true);
         PlayTool.Instance.PauseTime();
 
@@ -22,10 +28,16 @@ public class ResolveItemUI : MonoBehaviour
         ItemResolvePanel.gameObject.SetActive(true);
 
         CurrentItemToResolve = item;
+        CurrentAmount = amount;
     }
 
     public void Show()
     {
+        if(this.gameObject.activeInHierarchy)
+        {
+            return;
+        }
+
         this.gameObject.SetActive(true);
         PlayTool.Instance.PauseTime();
 
@@ -38,7 +50,10 @@ public class ResolveItemUI : MonoBehaviour
     {
         if(CurrentItemToResolve != null)
         {
-            CORE.Instance.CurrentScenario.PlayerDynasty.Storage.AddItem(CurrentItemToResolve);
+            if (CORE.Instance.CurrentScenario.PlayerDynasty.Storage.AddItem(CurrentItemToResolve, CurrentAmount))
+            {
+                CurrentItemToResolve = null;
+            }
         }
 
         this.gameObject.SetActive(false);

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
@@ -28,6 +29,9 @@ public class InventoryUI : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI SelectedItemAmountText;
 
+    [SerializeField]
+    Image SelectedItemImage;
+
     Inventory CurrentInventory;
 
     public void SetInfo(Inventory inventory)
@@ -49,7 +53,6 @@ public class InventoryUI : MonoBehaviour
         if(CurrentInventory != null)
         {
             CurrentInventory.InventoryChanged.AddListener(OnInventoryChanged);
-            CurrentInventory.InventoryOutOfStorage.AddListener(OnInventoryOutOfStorage);
             
             OnInventoryChanged();
         }
@@ -61,14 +64,14 @@ public class InventoryUI : MonoBehaviour
         if (CurrentInventory != null)
         {
             CurrentInventory.InventoryChanged.RemoveListener(OnInventoryChanged);
-            CurrentInventory.InventoryOutOfStorage.RemoveListener(OnInventoryOutOfStorage);
         }
     }
 
-    internal void OnItemFailed(Item item)
+    internal void OnItemFailed(Item item, int amount)
     {
         this.gameObject.SetActive(true);
-        ResolveStoragePanel.Show(item);
+        SetInfo(CORE.Instance.CurrentScenario.PlayerDynasty.Storage);
+        ResolveStoragePanel.Show(item, amount);
 
     }
 
@@ -84,11 +87,16 @@ public class InventoryUI : MonoBehaviour
             tempItem.SetInfo(CurrentInventory.Items[CurrentInventory.Items.Keys.ElementAt(i)]);
         }
 
+        RefreshCurrentItem();
+
         TotalWeight.text = CurrentInventory.TotalWeight + " / " + CurrentInventory.WeightCap;
 
-        if(CurrentInventory.TotalWeight <= CurrentInventory.WeightCap)
+        if(CurrentInventory.TotalWeight > CurrentInventory.WeightCap)
         {
-            ResolveStoragePanel.Resolve();
+            if (ResolveStoragePanel.gameObject.activeInHierarchy)
+            {
+                ResolveStoragePanel.Resolve();
+            }
         }
     }
 
@@ -107,9 +115,9 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    public void RemoveSelectedItem()
+    public void RemoveSelectedItem(int Amount = 1)
     {
-        CurrentInventory.RemoveItem(CurrentlySelectedItem.CurrentItem.ItemIdentity, 1);
+        CurrentInventory.RemoveItem(CurrentlySelectedItem.CurrentItem.ItemIdentity, Amount);
 
         if(!CurrentInventory.Items.ContainsKey(CurrentlySelectedItem.CurrentItem.ItemIdentity.name))
         {
@@ -120,16 +128,41 @@ public class InventoryUI : MonoBehaviour
         SelectedItemAmountText.text = CurrentlySelectedItem.CurrentItem.Amount.ToString();
     }
 
+    public void RemoveSelectedItemAll()
+    {
+        RemoveSelectedItem(CurrentlySelectedItem.CurrentItem.Amount);
+    }
+
     public void SelectItem(InventoryItemUI item)
     {
+        Deselect();
         CurrentlySelectedItem = item;
-        SelectedItemNameText.text = item.CurrentItem.ItemIdentity.name;
-        SelectedItemAmountText.text = item.CurrentItem.Amount.ToString();
+        RefreshCurrentItem();
+        item.SetSelected();
+    }
+
+    void RefreshCurrentItem()
+    {
+        if(CurrentlySelectedItem == null)
+        {
+            return;
+        }
+
+        SelectedItemNameText.text = CurrentlySelectedItem.CurrentItem.ItemIdentity.name;
+        SelectedItemAmountText.text = CurrentlySelectedItem.CurrentItem.Amount.ToString();
+        SelectedItemImage.sprite = CurrentlySelectedItem.CurrentItem.ItemIdentity.Icon;
         SelectedItemControlPanel.gameObject.SetActive(true);
+
     }
 
     public void Deselect()
     {
+        if(CurrentlySelectedItem == null)
+        {
+            return;
+        }
+
+        CurrentlySelectedItem.Deselect();
         CurrentlySelectedItem = null;
         SelectedItemControlPanel.SetActive(false);
     }

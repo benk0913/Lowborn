@@ -45,16 +45,23 @@ public class PlayModeUI : MonoBehaviour
     void AddListeners()
     {
         CORE.Instance.CurrentScenario.PlayerDynasty.Storage.ItemFailedEvent.AddListener(OnItemFailed);
+        CORE.Instance.CurrentScenario.PlayerDynasty.Storage.InventoryOutOfStorage.AddListener(OnOutOfStorage);
     }
 
     void RemoveListeners()
     {
         CORE.Instance.CurrentScenario.PlayerDynasty.Storage.ItemFailedEvent.RemoveListener(OnItemFailed);
+        CORE.Instance.CurrentScenario.PlayerDynasty.Storage.InventoryOutOfStorage.RemoveListener(OnOutOfStorage);
     }
 
-    private void OnItemFailed(Item item)
+    public void OnItemFailed(Item item, int amount)
     {
-        StorageInfo.OnItemFailed(item);
+        StorageInfo.OnItemFailed(item, amount);
+    }
+
+    public void OnOutOfStorage()
+    {
+        StorageInfo.OnInventoryOutOfStorage();
     }
 
     #endregion
