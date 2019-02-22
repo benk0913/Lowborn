@@ -51,6 +51,7 @@ public class Inventory
         WeightCap = 5;
     }
 
+
     public bool AddItem(Item item, int amount = 1)
     {
         if(TotalWeight + ( item.Weight * amount ) > WeightCap)
@@ -61,7 +62,7 @@ public class Inventory
 
         if(Items.ContainsKey(item.name))
         {
-            Items[item.name].Amount++;
+            Items[item.name].Amount += amount;
 
             InventoryChanged.Invoke();
             return true;

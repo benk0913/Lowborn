@@ -32,6 +32,9 @@ public class InventoryUI : MonoBehaviour
     [SerializeField]
     Image SelectedItemImage;
 
+    [SerializeField]
+    GameObject CloseButtonObject;
+
     Inventory CurrentInventory;
 
     public void SetInfo(Inventory inventory)
@@ -69,10 +72,18 @@ public class InventoryUI : MonoBehaviour
 
     internal void OnItemFailed(Item item, int amount)
     {
-        this.gameObject.SetActive(true);
-        SetInfo(CORE.Instance.CurrentScenario.PlayerDynasty.Storage);
         ResolveStoragePanel.Show(item, amount);
 
+        this.gameObject.SetActive(true);
+        SetInfo(CORE.Instance.CurrentScenario.PlayerDynasty.Storage);
+    }
+
+    public void OnInventoryOutOfStorage()
+    {
+        ResolveStoragePanel.Show();
+
+        this.gameObject.SetActive(true);
+        SetInfo(CORE.Instance.CurrentScenario.PlayerDynasty.Storage);
     }
 
     public void OnInventoryChanged()
@@ -91,20 +102,16 @@ public class InventoryUI : MonoBehaviour
 
         TotalWeight.text = CurrentInventory.TotalWeight + " / " + CurrentInventory.WeightCap;
 
-        if(CurrentInventory.TotalWeight > CurrentInventory.WeightCap)
+        if (ResolveStoragePanel.gameObject.activeInHierarchy)
         {
-            if (ResolveStoragePanel.gameObject.activeInHierarchy)
-            {
-                ResolveStoragePanel.Resolve();
-            }
+            CloseButtonObject.gameObject.SetActive(ResolveStoragePanel.AttemptResolve());
+        }
+        else
+        {
+            CloseButtonObject.gameObject.SetActive(true);
         }
     }
 
-    public void OnInventoryOutOfStorage()
-    {
-        this.gameObject.SetActive(true);
-        ResolveStoragePanel.Show();
-    }
 
     public void Clear()
     {

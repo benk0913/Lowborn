@@ -1263,6 +1263,7 @@ MonoBehaviour:
   SelectedItemNameText: {fileID: 235922205}
   SelectedItemAmountText: {fileID: 623941531}
   SelectedItemImage: {fileID: 2098716586}
+  CloseButtonObject: {fileID: 1808620691}
 --- !u!1 &178499288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1926,11 +1927,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -2917,8 +2918,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4722927905018269379}
   - {fileID: 635546109}
+  - {fileID: 4722927905018269379}
   m_Father: {fileID: 1720372062606895264}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2978,6 +2979,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemPanel: {fileID: 1074810140}
   ItemResolvePanel: {fileID: 635546105}
+  CurrentItemToResolve: {fileID: 0}
+  CurrentAmount: 0
 --- !u!1 &510371914
 GameObject:
   m_ObjectHideFlags: 0
@@ -3222,7 +3225,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 511435389}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 178382920}
+        m_MethodName: RemoveSelectedItemAll
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &517212046
@@ -3899,7 +3913,7 @@ RectTransform:
   - {fileID: 1583630954}
   - {fileID: 955570256}
   m_Father: {fileID: 478521222}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4099,11 +4113,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -4889,7 +4903,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 955570258}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 478521219}
+        m_MethodName: Cancel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &979277453
@@ -6400,7 +6425,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1242421913}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 178382920}
+        m_MethodName: RemoveSelectedItem
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1246951229
@@ -7235,11 +7271,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -8093,11 +8129,11 @@ MonoBehaviour:
     lineCount: 4
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -9825,11 +9861,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -15161,7 +15197,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 478521222}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -15276,11 +15312,11 @@ MonoBehaviour:
     lineCount: 3
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -15621,11 +15657,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 112753869}
     m_Modifications:
-    - target: {fileID: 386481784079268530, guid: fe9fbc50662ee0344ae86693cdebb22b,
-        type: 3}
-      propertyPath: m_Name
-      value: Portrait
-      objectReference: {fileID: 0}
     - target: {fileID: 386481784079268531, guid: fe9fbc50662ee0344ae86693cdebb22b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15731,6 +15762,11 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 386481784079268530, guid: fe9fbc50662ee0344ae86693cdebb22b,
+        type: 3}
+      propertyPath: m_Name
+      value: Portrait
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe9fbc50662ee0344ae86693cdebb22b, type: 3}
 --- !u!114 &1333894952800682089 stripped
@@ -15758,11 +15794,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1043884053316846243}
     m_Modifications:
-    - target: {fileID: 386481784079268530, guid: fe9fbc50662ee0344ae86693cdebb22b,
-        type: 3}
-      propertyPath: m_Name
-      value: Portrait
-      objectReference: {fileID: 0}
     - target: {fileID: 386481784079268531, guid: fe9fbc50662ee0344ae86693cdebb22b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15867,6 +15898,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 386481784079268530, guid: fe9fbc50662ee0344ae86693cdebb22b,
+        type: 3}
+      propertyPath: m_Name
+      value: Portrait
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe9fbc50662ee0344ae86693cdebb22b, type: 3}

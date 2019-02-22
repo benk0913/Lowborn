@@ -11,8 +11,16 @@ public class ResolveItemUI : MonoBehaviour
     [SerializeField]
     GameObject ItemResolvePanel;
 
-    Item CurrentItemToResolve;
-    int CurrentAmount;
+    Inventory CurrentInventory
+    {
+        get
+        {
+            return CORE.Instance.CurrentScenario.PlayerDynasty.Storage;
+        }
+    }
+
+    public Item CurrentItemToResolve;
+    public int CurrentAmount;
 
     public void Show(Item item, int amount)
     {
@@ -46,11 +54,33 @@ public class ResolveItemUI : MonoBehaviour
         ItemResolvePanel.gameObject.SetActive(false);
     }
 
-    public void Resolve()
+    public bool AttemptResolve()
+    {
+        if (CurrentItemToResolve != null)
+        {
+            if ( CurrentInventory.TotalWeight + (CurrentItemToResolve.Weight * CurrentAmount) <= CurrentInventory.WeightCap)
+            {
+                Resolve();
+                return true;
+            }
+        }
+        else
+        {
+            if (CurrentInventory.TotalWeight <= CurrentInventory.WeightCap)
+            {
+                Resolve();
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    void Resolve()
     {
         if(CurrentItemToResolve != null)
         {
-            if (CORE.Instance.CurrentScenario.PlayerDynasty.Storage.AddItem(CurrentItemToResolve, CurrentAmount))
+            if (CurrentInventory.AddItem(CurrentItemToResolve, CurrentAmount))
             {
                 CurrentItemToResolve = null;
             }
@@ -64,7 +94,7 @@ public class ResolveItemUI : MonoBehaviour
     {
         this.gameObject.SetActive(false);
         PlayTool.Instance.ResumeTime();
-
+        CurrentInventory.InventoryChanged.Invoke();
         
     }
 

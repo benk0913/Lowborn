@@ -31,14 +31,14 @@ public class LocationMap : MonoBehaviour
                 case GameTool.Build:
                     {
                         BuildingTool.Instance.ActivateTool();
-                        PlayTool.Instance.ActivateTool();
+                        PlayTool.Instance.DeactivateTool();
 
                         break;
                     }
                 case GameTool.Play:
                     {
                         BuildingTool.Instance.DeactivateTool();
-                        PlayTool.Instance.DeactivateTool();
+                        PlayTool.Instance.ActivateTool();
 
                         break;
                     }
