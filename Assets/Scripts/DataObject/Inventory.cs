@@ -105,7 +105,22 @@ public class Inventory
 
         return true;
     }
-    
+
+    public Item RemoveItemOfGroup(ItemGroup Group)
+    {
+        for(int i=0;i<Items.Keys.Count;i++)
+        {
+            if(Group.ContainsItem(Items[Items.Keys.ElementAt(i)].ItemIdentity))
+            {
+                Item itemRemoved = Items[Items.Keys.ElementAt(i)].ItemIdentity;
+                RemoveItem(Items[Items.Keys.ElementAt(i)].ItemIdentity);
+                return itemRemoved;
+            }
+        }
+
+        return null;
+    }
+
     public class InventoryItem
     {
         public Item ItemIdentity;

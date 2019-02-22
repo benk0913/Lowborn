@@ -15,5 +15,5 @@ MonoBehaviour:
   Type: 1
   Pool: []
   Sprite: {fileID: 21300000, guid: 86ba3d3064f84514e9e4cdf3438a1878, type: 3}
-  SetMaterial: {fileID: 0}
+  SetMaterial: {fileID: 2100000, guid: a5e6ca0461f07124baec8ac3ba3e39c7, type: 2}
   SetMesh: {fileID: 0}

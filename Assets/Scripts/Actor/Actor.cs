@@ -254,7 +254,13 @@ public class Actor : MonoBehaviour
         Material[] newMaterials = new Material[2];
         newMaterials[0] = Character.Face.SetMaterial;
         newMaterials[1] = Character.Clothing.SetMaterial;
-        Body.BodyRenderer.materials = newMaterials;
+        Body.UpperBody.materials = newMaterials;
+
+        if (Body.LowerBody != null)
+        {
+            Body.LowerBody.materials = newMaterials;
+            Body.Skirt.materials = newMaterials;
+        }
 
 
         newMaterials = new Material[2];

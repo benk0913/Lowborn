@@ -16,18 +16,6 @@ MonoBehaviour:
   Pool:
   - {fileID: 11400000, guid: 30f2a13ad7c9f314f9bbc441d9dd57fb, type: 2}
   - {fileID: 11400000, guid: 3648a2ff3ed065645b8207a0e8df4fea, type: 2}
-  - {fileID: 11400000, guid: aceca6d46788d8948bb64acd7f65b3d3, type: 2}
-  - {fileID: 11400000, guid: 86142f66d79d81744b0c30571dfbfb7f, type: 2}
-  - {fileID: 11400000, guid: b5388c9dbf07cd24f862597c867c6556, type: 2}
-  - {fileID: 11400000, guid: 1a092ef058cb0684ca1c57268dc2d8ce, type: 2}
-  - {fileID: 11400000, guid: 3973938b7ab43194db1b4178b8892d90, type: 2}
-  - {fileID: 11400000, guid: fbb92c739d74f2b448f89415767a3c29, type: 2}
-  - {fileID: 11400000, guid: 02e6f07e1c83858498d40ea3cb4c0ec9, type: 2}
-  - {fileID: 11400000, guid: 0bd3d08223b0cbb449676acfef13d013, type: 2}
-  - {fileID: 11400000, guid: e4ef9aa2a4b2d2745bff187f3469cf3c, type: 2}
-  - {fileID: 11400000, guid: 5a5031b5edee64f44baf8e9f12e24b72, type: 2}
-  - {fileID: 11400000, guid: 54a237c99c9463f4c9e1c4558e80435c, type: 2}
-  - {fileID: 11400000, guid: c6c27d08bec221e429e1a63b7ca6b186, type: 2}
   Sprite: {fileID: 0}
   SetMaterial: {fileID: 0}
   SetMesh: {fileID: 0}

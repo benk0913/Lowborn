@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 1159413435870591119}
   - component: {fileID: 1159413435870591118}
   - component: {fileID: 1159413435870591107}
-  m_Layer: 0
+  - component: {fileID: 2898831606448413083}
+  m_Layer: 10
   m_Name: Actor
   m_TagString: Actor
   m_Icon: {fileID: 0}
@@ -87,6 +88,32 @@ MonoBehaviour:
   BodyContainer: {fileID: 6287135000939495394}
   Character: {fileID: 0}
   CurrentInteraction: {fileID: 0}
+--- !u!114 &2898831606448413083
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1159413435870591113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb1cdbba4e2df194789017e04131cf16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  InteractionPoints: []
+  PossibleInteractions:
+  - _Interaction: {fileID: 11400000, guid: abcb4e3c7315283479944118c70ac305, type: 2}
+    OnInteractionComplete:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+  - _Interaction: {fileID: 11400000, guid: f9cb71a6bc557ad44ad4e40bffe561b4, type: 2}
+    OnInteractionComplete:
+      m_PersistentCalls:
+        m_Calls: []
+      m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
 --- !u!1 &3157488920420281267
 GameObject:
   m_ObjectHideFlags: 0
