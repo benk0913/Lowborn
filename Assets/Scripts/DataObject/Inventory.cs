@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -120,6 +121,17 @@ public class Inventory
 
         return null;
     }
+
+    public bool HasItem(Item item, int amount)
+    {
+        if(!Items.ContainsKey(item.name))
+        {
+            return false;
+        }
+
+        return (Items[item.name].Amount >= amount);
+    }
+
 
     public class InventoryItem
     {

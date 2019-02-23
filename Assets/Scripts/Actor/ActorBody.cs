@@ -19,5 +19,8 @@ public class ActorBody : MonoBehaviour
     [SerializeField]
     public MeshRenderer HeadRenderer;
 
+    [SerializeField]
+    public Transform WeaponSpot;
+    
 
 }

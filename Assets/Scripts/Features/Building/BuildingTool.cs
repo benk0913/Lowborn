@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using System.Linq;
 using UnityEngine.AI;
+using UnityEngine.Events;
 
 public class BuildingTool : MonoBehaviour
 {
@@ -28,9 +29,15 @@ public class BuildingTool : MonoBehaviour
     [SerializeField]
     Material SelectedMaterial;
 
+    [SerializeField]
+    public UnityEvent OnActivate;
+
+    [SerializeField]
+    public UnityEvent OnDeactivate;
 
 
-    bool isToolActive;
+
+    public bool isToolActive;
 
     #endregion
 
@@ -316,6 +323,8 @@ public class BuildingTool : MonoBehaviour
         }
 
         isToolActive = true;
+
+        OnActivate.Invoke();
     }
 
     public void DeactivateTool()
@@ -328,6 +337,8 @@ public class BuildingTool : MonoBehaviour
         isToolActive = false;
         ClearBlueprint();
         marker.gameObject.SetActive(false);
+
+        OnDeactivate.Invoke();
     }
 
     public List<StructureProp> GetStructuresInFloor(int floor)

@@ -20,3 +20,6 @@ MonoBehaviour:
   ReanimateOnRepeat: 1
   OnCompleteEvenets:
   - {fileID: 11400000, guid: c207269c3c5905a49967378e41c7d239, type: 2}
+  RequiredConditions:
+  - {fileID: 11400000, guid: 925bb95709a713b4bb5756182a246712, type: 2}
+  InteractionEquip: {fileID: 11400000, guid: 14410fdcdba78fa409f6679a773da7c4, type: 2}

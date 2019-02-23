@@ -19,5 +19,18 @@ public enum PropType
     Floor,
     Decoration,
     Furniture,
-    Carpet
+    Carpet,
+    BuildablePlot
 }
+
+
+[System.Serializable]
+public enum Equation
+{
+    Above,
+    AboveOrEquals,
+    Equals,
+    BelowOrEquals,
+    Below
+}
+

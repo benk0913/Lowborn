@@ -85,10 +85,15 @@ public class PlayModeUI : MonoBehaviour
         InteractionOptionUI tempOption;
         for (int i = 0; i < entity.PossibleInteractions.Count; i++)
         {
+            if (!entity.PossibleInteractions[i]._Interaction.HasRequirements)
+            {
+                continue;
+            }
+
             tempOption = ResourcesLoader.Instance.GetRecycledObject("InteractionOptionUI").GetComponent<InteractionOptionUI>();
             tempOption.transform.SetParent(InteractionOptionsContainer, false);
 
-            tempOption.SetInfo(entity, entity.PossibleInteractions[i]._Interaction);
+             tempOption.SetInfo(entity, entity.PossibleInteractions[i]._Interaction);
 
             yield return new WaitForSeconds(0.1f);
         }

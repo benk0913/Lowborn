@@ -90,6 +90,7 @@ public class Actor : MonoBehaviour
         if (!isRepeated)
         {
             Body.Anim.SetTrigger("Interrupt");
+            UnequipItem();
         }
 
         CurrentInteraction = null;
@@ -143,6 +144,33 @@ public class Actor : MonoBehaviour
         FaceTargetRoutineInstance = null;
     }
 
+    public void EquipItem(Item item)
+    {
+        if (Body.WeaponSpot.childCount > 0)
+        {
+            UnequipItem();
+        }
+
+        if(item.Prefab == null)
+        {
+            return;
+        }
+
+        GameObject tempItem = Instantiate(item.Prefab);
+
+        tempItem.transform.position = Body.WeaponSpot.position;
+        tempItem.transform.rotation = Body.WeaponSpot.rotation;
+        tempItem.transform.SetParent(Body.WeaponSpot);
+    }
+
+    public void UnequipItem()
+    {
+        if(Body.WeaponSpot.childCount > 0)
+        {
+            Destroy(Body.WeaponSpot.GetChild(0).gameObject);
+        }
+    }
+
     #endregion
 
     #region AI_2
@@ -183,6 +211,12 @@ public class Actor : MonoBehaviour
         }
 
         FaceTarget(entity.transform.position);
+
+        if (currentInteraction.InteractionEquip != null)
+        {
+            EquipItem(currentInteraction.InteractionEquip);
+        }
+
 
         if (Animate)
         {

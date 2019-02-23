@@ -22,9 +22,6 @@ public class Prop : ScriptableObject
     public int SizeZ = 0;
 
     [SerializeField]
-    public PropType _PropType;
-
-    [SerializeField]
     public bool IsBuildable = true;
 
 

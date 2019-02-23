@@ -16,8 +16,11 @@ MonoBehaviour:
   InteractionAnimationNumber: 1
   Duration: 5
   ShowProgressBar: 0
-  Repeat: 1
-  ReanimateOnRepeat: 1
+  Repeat: 0
+  ReanimateOnRepeat: 0
   OnCompleteEvenets:
   - {fileID: 11400000, guid: b2d0cedecc5b80842bf507e458aedbc3, type: 2}
   - {fileID: 11400000, guid: 59e6c5d5ad2c2d6469b62531bcf09a34, type: 2}
+  RequiredConditions:
+  - {fileID: 11400000, guid: 78d10553c73f3bc46857e7d5824a1537, type: 2}
+  InteractionEquip: {fileID: 0}

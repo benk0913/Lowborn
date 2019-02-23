@@ -27,4 +27,26 @@ public class Interaction : ScriptableObject
     [SerializeField]
     public List<GameEvent> OnCompleteEvenets = new List<GameEvent>();
 
+    [SerializeField]
+    public List<Condition> RequiredConditions = new List<Condition>();
+
+    [SerializeField]
+    public Item InteractionEquip;
+
+    public bool HasRequirements
+    {
+        get
+        {
+            for(int i=0;i<RequiredConditions.Count;i++)
+            {
+                if(!RequiredConditions[i].Validate())
+                {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+    }
+
 }

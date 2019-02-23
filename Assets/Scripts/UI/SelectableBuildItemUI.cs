@@ -8,6 +8,7 @@ public class SelectableBuildItemUI : SelectableUI
     [SerializeField]
     public Image Icon;
 
+    [SerializeField]
     Prop currentProp;
 
     public void SetInfo(Prop prop)

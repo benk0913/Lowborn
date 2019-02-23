@@ -310,21 +310,35 @@ public class LocationMap : MonoBehaviour
 
     public bool isSpotOccupiable(Vector2 point, StructureProp structure, int inFloor)
     {
-        if (!SMAP.ContainsKey(point) || SMAP[point].Count == 0)
+        if ((!SMAP.ContainsKey(point) || SMAP[point].Count == 0))
         {
-            return true;
-        }
-
-        for (int i = 0; i < SMAP[point].Count; i++)
-        {
-            if (SMAP[point][i].Data.Type == structure.Data.Type
-                && SMAP[point][i].Floor == inFloor)
+            if (structure.Data.Type == PropType.BuildablePlot)
+            {
+                return true;
+            }
+            else
             {
                 return false;
             }
         }
 
-        return true;
+        for (int i = 0; i < SMAP[point].Count; i++)
+        {
+            if (SMAP[point][i].Data.Type == structure.Data.Type && SMAP[point][i].Floor == inFloor)
+            {
+                return false;
+            }
+        }
+
+        for (int i = 0; i < SMAP[point].Count; i++)
+        {
+            if (SMAP[point][i].Data.Type == PropType.BuildablePlot)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
     #endregion
 }

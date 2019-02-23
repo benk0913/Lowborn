@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Item", menuName = "DataObjects/Item", order = 2)]
+[CreateAssetMenu(fileName = "Item", menuName = "DataObjects/Items/Item", order = 2)]
 public class Item : ScriptableObject
 {
     [SerializeField]
@@ -18,4 +18,7 @@ public class Item : ScriptableObject
     [SerializeField]
     public int Weight;
     
+    [SerializeField]
+    public GameObject Prefab;
+
 }
