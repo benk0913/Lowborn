@@ -76,12 +76,12 @@ public class StructureProp : MonoBehaviour
     {
 
         Vector2Int startingSpot = new Vector2Int(
-            Mathf.FloorToInt(transform.position.x - SizeX),
-            Mathf.FloorToInt(transform.position.z - SizeZ));
+            Mathf.FloorToInt(transform.position.x - (SizeX * LocationMap.Instance.SnapUnitInt)),
+            Mathf.FloorToInt(transform.position.z - (SizeZ * LocationMap.Instance.SnapUnitInt)));
 
         Vector2Int endingSpot = new Vector2Int(
-            startingSpot.x + 1 + SizeX * 2,
-            startingSpot.y + 1 + SizeZ * 2);
+            (startingSpot.x + 1 + (SizeX * LocationMap.Instance.SnapUnitInt) * 2),
+            (startingSpot.y + 1 + (SizeZ * LocationMap.Instance.SnapUnitInt) * 2));
 
         for(int x=startingSpot.x;x<endingSpot.x;x++)
         {

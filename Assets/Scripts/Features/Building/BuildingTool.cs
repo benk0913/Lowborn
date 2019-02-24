@@ -374,8 +374,8 @@ public class BuildingTool : MonoBehaviour
         Mathf.FloorToInt(smapPos.y - prop.Data.SizeZ));
 
         Vector2Int endingSpot = new Vector2Int(
-            startingSpot.x + 1 + prop.Data.SizeX * 2,
-            startingSpot.y + 1 + prop.Data.SizeZ * 2);
+            startingSpot.x + prop.Data.SizeX * 2,
+            startingSpot.y + prop.Data.SizeZ * 2);
 
 
         for (int x = startingSpot.x; x < endingSpot.x; x++)
