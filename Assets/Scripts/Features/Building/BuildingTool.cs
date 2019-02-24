@@ -72,6 +72,7 @@ public class BuildingTool : MonoBehaviour
 
     #endregion
 
+    
     #region Unity LifeCycle
 
     private void Awake()
@@ -368,54 +369,26 @@ public class BuildingTool : MonoBehaviour
             return false;
         }
 
-        for (int x = 1; x < prop.SizeX + 1; x++)
-        {
-            if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x + x, smapPos.y), prop, CurrentFloor))
-            {
-                return false;
-            }
-            if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x - x, smapPos.y), prop, CurrentFloor))
-            {
-                return false;
-            }
+        Vector2Int startingSpot = new Vector2Int(
+        Mathf.FloorToInt(smapPos.x - prop.Data.SizeX),
+        Mathf.FloorToInt(smapPos.y - prop.Data.SizeZ));
 
-            for (int z = 1; z < prop.SizeZ + 1; z++)
+        Vector2Int endingSpot = new Vector2Int(
+            startingSpot.x + 1 + prop.Data.SizeX * 2,
+            startingSpot.y + 1 + prop.Data.SizeZ * 2);
+
+
+        for (int x = startingSpot.x; x < endingSpot.x; x++)
+        {
+            for (int y = startingSpot.y; y < endingSpot.y; y++)
             {
-                if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x + x, smapPos.y + z), prop, CurrentFloor))
-                {
-                    return false;
-                }
-                if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x - x, smapPos.y - z), prop, CurrentFloor))
+                if (!LocationMap.Instance.isSpotOccupiable(new Vector2(x,y), prop, CurrentFloor))
                 {
                     return false;
                 }
             }
         }
-
-        for (int z = 1; z < prop.SizeZ + 1; z++)
-        {
-            if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x, smapPos.y + z), prop, CurrentFloor))
-            {
-                return false;
-            }
-            if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x, smapPos.y - z), prop, CurrentFloor))
-            {
-                return false;
-            }
-
-            for (int x = 1; x < prop.SizeX+1; x++)
-            {
-                if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x + x, smapPos.y + z), prop, CurrentFloor))
-                {
-                    return false;
-                }
-                if (!LocationMap.Instance.isSpotOccupiable(new Vector2(smapPos.x - x, smapPos.y - z), prop, CurrentFloor))
-                {
-                    return false;
-                }
-            }
-        }
-
+        
         return true;
     }
 

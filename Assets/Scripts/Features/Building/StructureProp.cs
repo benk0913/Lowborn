@@ -74,31 +74,20 @@ public class StructureProp : MonoBehaviour
     
     public void OccupySMAP(bool CurveNavMesh = true)
     {
-        OccupySpot(transform.position.x, transform.position.z);
 
-        for (int x = 1; x < this.SizeX + 1; x++)
+        Vector2Int startingSpot = new Vector2Int(
+            Mathf.FloorToInt(transform.position.x - SizeX),
+            Mathf.FloorToInt(transform.position.z - SizeZ));
+
+        Vector2Int endingSpot = new Vector2Int(
+            startingSpot.x + 1 + SizeX * 2,
+            startingSpot.y + 1 + SizeZ * 2);
+
+        for(int x=startingSpot.x;x<endingSpot.x;x++)
         {
-            OccupySpot(transform.position.x + x, transform.position.z);
-            OccupySpot(transform.position.x - x, transform.position.z);
-
-            for (int z = 1; z < this.SizeZ + 1; z++)
+            for(int y=startingSpot.y;y<endingSpot.y;y++)
             {
-                OccupySpot(transform.position.x + x, transform.position.z + z);
-                OccupySpot(transform.position.x - x, transform.position.z - z);
-
-            }
-        }
-
-        for (int z = 1; z < this.SizeZ + 1; z++)
-        {
-            OccupySpot(transform.position.x, transform.position.z + z);
-            OccupySpot(transform.position.x, transform.position.z - z);
-
-            for (int x = 1; x < this.SizeX + 1; x++)
-            {
-                OccupySpot(transform.position.x + x, transform.position.z + z);
-                OccupySpot(transform.position.x - x, transform.position.z - z);
-
+                OccupySpot(x, y);
             }
         }
 

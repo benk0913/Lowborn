@@ -312,6 +312,7 @@ public class LocationMap : MonoBehaviour
     {
         if ((!SMAP.ContainsKey(point) || SMAP[point].Count == 0))
         {
+            Debug.LogError(point + " = ");
             if (structure.Data.Type == PropType.BuildablePlot)
             {
                 return true;
@@ -322,13 +323,17 @@ public class LocationMap : MonoBehaviour
             }
         }
 
+        string testMessage = point + " = ";
         for (int i = 0; i < SMAP[point].Count; i++)
         {
+            testMessage += " | " + SMAP[point][i].Data.Type.ToString();
+
             if (SMAP[point][i].Data.Type == structure.Data.Type && SMAP[point][i].Floor == inFloor)
             {
                 return false;
             }
         }
+        Debug.LogError(testMessage);
 
         for (int i = 0; i < SMAP[point].Count; i++)
         {
