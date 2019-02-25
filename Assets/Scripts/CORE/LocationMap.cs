@@ -315,17 +315,24 @@ public class LocationMap : MonoBehaviour
     }
 
 
-    public bool isSpotOccupiable(Vector2 point, StructureProp structure, int inFloor)
+    public bool isSpotOccupiable(Vector2 point, StructureProp structure, int inFloor, bool buildMode = true)
     {
         if ((!SMAP.ContainsKey(point) || SMAP[point].Count == 0))
         {
-            if (structure.Data.Type == PropType.BuildablePlot)
+            if (buildMode)
             {
-                return true;
+                if (structure.Data.Type == PropType.BuildablePlot)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
             }
             else
             {
-                return false;
+                return true;
             }
         }
         

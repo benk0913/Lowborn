@@ -10,6 +10,10 @@ public class PlayTool : MonoBehaviour
 
     public DateTime CurrentTime;
     public float TimeSpeed = 1f;
+
+    [SerializeField]
+    public int SecondsPerRealSecond = 60;
+
     Coroutine TimeRoutineInstance;
     public UnityEvent OnSecondPassedEvent = new UnityEvent();
 
@@ -118,7 +122,7 @@ public class PlayTool : MonoBehaviour
         while(true)
         {
             yield return new WaitForSeconds(1f);
-            CurrentTime = CurrentTime.AddSeconds(1);
+            CurrentTime = CurrentTime.AddSeconds(SecondsPerRealSecond);
             OnSecondPassedEvent.Invoke();
         }
     }

@@ -60,7 +60,7 @@ public class TimerPanelUI : MonoBehaviour
     void UpdateUI()
     {
         DateText.text = PlayTool.Instance.CurrentTime.ToString("dd/MM/yyyy");
-        TimeText.text = PlayTool.Instance.CurrentTime.ToString("hh:mm:ss");
+        TimeText.text = PlayTool.Instance.CurrentTime.ToString("hh:mm");
     }
     
 

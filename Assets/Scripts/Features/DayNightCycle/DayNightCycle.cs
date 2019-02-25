@@ -17,7 +17,6 @@ public class DayNightCycle : MonoBehaviour
 
     private void RotateLightSource()
     {
-        Debug.Log("rotating");
         if (!_rotating)
             StartCoroutine(Rotate(new Vector3(1, 0, 0), 1));
     }
