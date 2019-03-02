@@ -13,10 +13,12 @@ MonoBehaviour:
   m_Name: Gather Berries
   m_EditorClassIdentifier: 
   Description: Gather edible berries
-  InteractionAnimationNumber: 1
+  InteractionAnimationNumber: 2
   Duration: 6
   ShowProgressBar: 1
   Repeat: 1
   ReanimateOnRepeat: 1
   OnCompleteEvenets:
   - {fileID: 11400000, guid: 40b6db1623c77a64a92eb5ff02133717, type: 2}
+  RequiredConditions: []
+  InteractionEquip: {fileID: 0}
